@@ -1,0 +1,38 @@
+[{
+    title : '@@form.duplicatevaluevalidator.config@@',
+    properties : [
+    %s,
+    {
+        name : 'fieldId',
+        label : '@@form.duplicatevaluevalidator.fieldId@@',
+        type : 'selectbox',
+        options_ajax_on_change : 'formDefId',
+        options_ajax : '[CONTEXT_PATH]/web/json/console/app[APP_PATH]/form/columns/options',
+        required : 'True'
+    },
+    {
+        name : 'errorDuplicateMsg',
+        label : '@@form.duplicatevaluevalidator.errorDuplicateMsg@@',
+        type : 'textfield'
+    },
+    {
+        name : 'mandatory',
+        label : '@@form.duplicatevaluevalidator.mandatory@@',
+        type : 'checkbox',
+        value : 'true',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        name : 'regex',
+        label : '@@form.duplicatevaluevalidator.regexCheck@@',
+        type : 'textfield'
+    },
+    {
+        name : 'errorFormatMsg',
+        label : '@@form.duplicatevaluevalidator.errorFormatMsg@@',
+        type : 'textfield'
+    }]
+}]

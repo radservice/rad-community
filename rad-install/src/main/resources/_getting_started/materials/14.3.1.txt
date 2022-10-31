@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="leaveApplicationChart" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dbca24fe-923c-4c78-ba79-d437479c8d6e">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="63"/>
+	<queryString>
+		<![CDATA[SELECT c_approval as 'status', COUNT(c_approval) as 'count' FROM app_fd_purchase_requests WHERE c_approval IS NOT NULL GROUP BY c_approval]]>
+	</queryString>
+	<field name="status" class="java.lang.String"/>
+	<field name="count" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="69" uuid="c0b4925b-02bd-422a-a45c-b46d0aea690f"/>
+				<textElement textAlignment="Center">
+					<font size="36"/>
+				</textElement>
+				<text><![CDATA[Approval Chart]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="266" splitType="Stretch">
+			<barChart>
+				<chart>
+					<reportElement x="0" y="16" width="555" height="229" uuid="de24762b-5037-4ec9-be59-5f3c936f38a6"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Status"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{status}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{count}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="e0224d5e-b439-4d32-90ca-04bf5da649d5"/>
+			</line>
+			<line>
+				<reportElement x="0" y="260" width="555" height="1" uuid="e701f0a1-f72c-4906-a2e8-14c87b4e2b98"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

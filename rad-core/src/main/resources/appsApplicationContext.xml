@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+    <import resource="classpath:wfengineApplicationContext.xml" />
+
+    <bean id="formService" class="net.purwana.rads.apps.form.service.FormServiceImpl">
+    </bean>
+
+    <bean id="fluCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheName" value="net.purwana.rads.cache.FLU_CACHE"/>
+    </bean>
+
+    <bean id="userviewMenuCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheName" value="net.purwana.rads.cache.USERVIEW_CACHE"/>
+    </bean>
+    
+    <bean id="formOptionsCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheName" value="net.purwana.rads.cache.FORM_OPTIONS_CACHE"/>
+    </bean>
+
+    <bean id="cssCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheName" value="net.purwana.rads.cache.CSS_CACHE"/>
+    </bean>
+
+    <bean id="formColumnCacheBean" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+    
+    <bean id="formColumnCache" class="net.purwana.rads.apps.form.model.FormColumnCache">
+        <property name="cache" ref="formColumnCacheBean"/>
+    </bean>
+    
+    <bean id="formSessionFactoryCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheName" value="net.purwana.rads.cache.SF_CACHE"/>
+    </bean>
+    
+    <bean id="joinFormSessionFactoryCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheName" value="net.purwana.rads.cache.SF_CACHE"/>
+    </bean>
+    
+    <bean id="formPersistentClassCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+    
+    <bean id="nonceCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+    
+    <bean id="formOptionsCacheExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
+        <property name="poolSize" value="10" />
+        <property name="waitForTasksToCompleteOnShutdown" value="false" />
+    </bean>
+    
+    <bean id="formDataDao" class="net.purwana.rads.apps.form.dao.FormDataDaoImpl" >
+        <property name="sessionFactory" ref="formDataSessionFactory" />
+        <property name="formDefinitionDao" ref="formDefinitionDao" />
+        <property name="builderDefinitionDao" ref="builderDefinitionDao" />
+        <property name="formService" ref="formService" />
+        <property name="formColumnCache" ref="formColumnCache" />
+        <property name="formSessionFactoryCache" ref="formSessionFactoryCache" />
+        <property name="joinFormSessionFactoryCache" ref="joinFormSessionFactoryCache" />
+        <property name="formPersistentClassCache" ref="formSessionFactoryCache" />
+    </bean>
+    
+    <bean id="formDataSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="setupDataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>/net/purwana/rads/apps/form/model/FormRow.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto"></prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.format_sql">false</prop>
+                <prop key="hibernate.transaction.jta.platform">org.hibernate.service.jta.platform.internal.BitronixJtaPlatform</prop>
+                <prop key="hibernate.connection.release_mode">after_transaction</prop>
+                <prop key="hibernate.query.plan_cache_max_size">16</prop>
+                <prop key="hibernate.query.plan_parameter_metadata_max_size">128</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="appDefinitionDao" class="net.purwana.rads.apps.app.dao.AppDefinitionDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+        <property name="cache" ref="fluCache" />
+    </bean>
+
+    <bean id="formDefinitionDao" class="net.purwana.rads.apps.app.dao.FormDefinitionDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+        <property name="formColumnCache" ref="formColumnCache" />
+        <property name="cache" ref="fluCache" />
+    </bean>
+
+    <bean id="userviewDefinitionDao" class="net.purwana.rads.apps.app.dao.UserviewDefinitionDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+        <property name="cache" ref="fluCache" />
+    </bean>
+
+    <bean id="datalistDefinitionDao" class="net.purwana.rads.apps.app.dao.DatalistDefinitionDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+        <property name="cache" ref="fluCache" />
+    </bean>
+    
+    <bean id="builderDefinitionDao" class="net.purwana.rads.apps.app.dao.BuilderDefinitionDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+        <property name="cache" ref="fluCache" />
+    </bean>
+
+    <bean id="packageDefinitionDao" class="net.purwana.rads.apps.app.dao.PackageDefinitionDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+        <property name="appDefinitionDao" ref="appDefinitionDao"/>
+    </bean>
+
+    <bean id="messageDao" class="net.purwana.rads.apps.app.dao.MessageDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+        <property name="cache" ref="fluCache" />
+    </bean>
+
+    <bean id="environmentVariableDao" class="net.purwana.rads.apps.app.dao.EnvironmentVariableDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+    </bean>
+
+    <bean id="pluginDefaultPropertiesDao" class="net.purwana.rads.apps.app.dao.PluginDefaultPropertiesDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+    </bean>
+    
+    <bean id="appResourceDao" class="net.purwana.rads.apps.app.dao.AppResourceDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+    </bean>
+
+    <bean id="AuditTrailDao" class="net.purwana.rads.apps.app.dao.AuditTrailDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+    </bean>
+
+    <bean id="appSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <qualifier value="app"/>
+        <property name="dataSource" ref="setupDataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>/net/purwana/rads/apps/app/model/AppDefinition.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/DatalistDefinition.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/FormDefinition.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/PackageDefinition.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/PackageActivityForm.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/PackageActivityPlugin.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/PackageParticipant.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/UserviewDefinition.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/BuilderDefinition.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/PluginDefaultProperties.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/Message.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/AppResource.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/EnvironmentVariable.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/AuditTrail.hbm.xml</value>
+                <value>/net/purwana/rads/apps/app/model/UserReplacement.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.format_sql">false</prop>
+                <prop key="hibernate.transaction.jta.platform">org.hibernate.service.jta.platform.internal.BitronixJtaPlatform</prop>
+                <prop key="hibernate.connection.release_mode">after_transaction</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!-- Hibernate SessionFactory for report-->
+    <bean id="reportSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <qualifier value="report"/>
+        <property name="dataSource" ref="setupDataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>/net/purwana/rads/report/model/ReportApp.hbm.xml</value>
+                <value>/net/purwana/rads/report/model/ReportWorkflowPackage.hbm.xml</value>
+                <value>/net/purwana/rads/report/model/ReportWorkflowProcess.hbm.xml</value>
+                <value>/net/purwana/rads/report/model/ReportWorkflowActivity.hbm.xml</value>
+                <value>/net/purwana/rads/report/model/ReportWorkflowProcessInstance.hbm.xml</value>
+                <value>/net/purwana/rads/report/model/ReportWorkflowActivityInstance.hbm.xml</value>
+                <value>/net/purwana/rads/apps/form/model/FormDataAuditTrail.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.transaction.jta.platform">org.hibernate.service.jta.platform.internal.BitronixJtaPlatform</prop>
+                <prop key="hibernate.connection.release_mode">after_transaction</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <bean id="reportAppDao" class="net.purwana.rads.report.dao.ReportAppDaoImpl">
+        <property name="sessionFactory" ref="reportSessionFactory"/>
+    </bean>
+    
+    <bean id="reportWorkflowPackageDao" class="net.purwana.rads.report.dao.ReportWorkflowPackageDaoImpl">
+        <property name="sessionFactory" ref="reportSessionFactory"/>
+    </bean>
+    
+    <bean id="reportWorkflowProcessDao" class="net.purwana.rads.report.dao.ReportWorkflowProcessDaoImpl">
+        <property name="sessionFactory" ref="reportSessionFactory"/>
+    </bean>
+    
+    <bean id="reportWorkflowActivityDao" class="net.purwana.rads.report.dao.ReportWorkflowActivityDaoImpl">
+        <property name="sessionFactory" ref="reportSessionFactory"/>
+    </bean>
+    
+    <bean id="reportWorkflowProcessInstanceDao" class="net.purwana.rads.report.dao.ReportWorkflowProcessInstanceDaoImpl">
+        <property name="sessionFactory" ref="reportSessionFactory"/>
+    </bean>
+    
+    <bean id="reportWorkflowActivityInstanceDao" class="net.purwana.rads.report.dao.ReportWorkflowActivityInstanceDaoImpl">
+        <property name="sessionFactory" ref="reportSessionFactory"/>
+    </bean>
+    
+    <bean id="reportExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="maxPoolSize" value="10" />
+        <property name="waitForTasksToCompleteOnShutdown" value="true" />
+    </bean>
+    
+    <bean id="commonTaskScheduler" class="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler">
+        <property name="poolSize" value="10" />
+        <property name="waitForTasksToCompleteOnShutdown" value="true" />
+        <property name="removeOnCancelPolicy" value="true" />
+        <property name="threadNamePrefix" value="CommonScheduler-" />
+    </bean>
+    
+    <bean id="formDataAuditTrailDao" class="net.purwana.rads.apps.form.dao.FormDataAuditTrailDaoImpl">
+        <property name="sessionFactory" ref="reportSessionFactory"/>
+    </bean>
+    
+    <bean id="userReplacementDao" class="net.purwana.rads.apps.app.dao.UserReplacementDaoImpl">
+        <property name="sessionFactory" ref="appSessionFactory"/>
+    </bean>
+
+    <bean id="workflowHelper" class="net.purwana.rads.apps.app.service.AppWorkflowHelper">
+    </bean>
+
+    <bean id="appPluginUtil" class="net.purwana.rads.apps.app.service.AppPluginUtil">
+    </bean>
+
+    <bean id="auditTrailManager" class="net.purwana.rads.apps.app.service.AuditTrailManagerImpl">
+    </bean>
+
+    <bean id="auditTrailInterceptor" class="net.purwana.rads.apps.app.service.AuditTrailInterceptor">
+    </bean>
+    
+    <bean id="sqlFilterAspect" class="net.purwana.rads.apps.app.service.SqlFilterAspect">
+    </bean>
+   
+    <bean id="pushService" class="net.purwana.rads.apps.app.service.PushServiceUtil">
+        <property name="publicKey" value="BE54-RlSdVqGwlh_skZ4qQqP1tY7uNZrQbv3IJ_Rd2uRHsId8XjvH2CXav_5PkhrM1XvBLXJyi7tx6io5E3fegg"/>
+        <property name="privateKey" value="Fe0bTj0H_UYcg7qnFzx0qBl-H90RuptO6r_vOUZJWvI"/>
+    </bean>
+    
+    <!-- Important: this is to let the XPath object created before Security Manageger initialized -->
+    <bean id="dependenciesService" class="net.purwana.rads.apps.app.service.DependenciesUtil">
+    </bean>
+    
+    <bean
+        class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetClass"
+            value="org.springframework.security.core.context.SecurityContextHolder" />
+        <property name="targetMethod" value="setStrategyName" />
+        <property name="arguments" value="net.purwana.rads.apps.util.ThreadLocalSecurityContextHolderStrategy" />
+    </bean>
+   
+    <aop:config>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* net.purwana.rads.apps.app.dao.*Dao.*(..)) and !(execution(* net.purwana.rads.apps.app.dao.AppDefinitionDao.updateDateModified(..)))" order="1" />
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* net.purwana.rads.report.dao.*Dao.*(..))" order="1" />
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* net.purwana.rads.apps.form.dao.*Dao.*(..))" order="1" />
+        <aop:advisor advice-ref="sqlFilterAspect" pointcut="execution(* net.purwana.rads.workflow.model.service.WorkflowManager.*(..))" order="1" />
+        <aop:advisor advice-ref="auditTrailInterceptor" pointcut="execution(* net.purwana.rads.workflow.model.service.WorkflowManager.*(..)) and !(execution(* net.purwana.rads..*.get*(..)) or execution(* net.purwana.rads..*.set*(..)) or execution(* net.purwana.rads..*.is*(..)) or execution(* net.purwana.rads..*.internal*(..)))" order="2" />
+        <aop:advisor advice-ref="auditTrailInterceptor" pointcut="execution(* net.purwana.rads.directory.dao.*Dao.*(..)) and !(execution(* net.purwana.rads..*.get*(..)) or execution(* net.purwana.rads..*.set*(..)))" order="1" />
+        <aop:advisor advice-ref="auditTrailInterceptor" pointcut="execution(* net.purwana.rads.apps.form.dao.FormDataDao.*(..)) and !(execution(* net.purwana.rads..*.get*(..)) or execution(* net.purwana.rads..*.set*(..)) or execution(* net.purwana.rads..*.internal*(..)) or execution(* net.purwana.rads..*.loadByTable*(..)) or execution(* net.purwana.rads..*.clear*(..)))" order="1" />
+        <aop:advisor advice-ref="auditTrailInterceptor" pointcut="execution(* net.purwana.rads.apps.app.dao.*Dao.*(..)) and !(execution(* net.purwana.rads.apps.app.dao.AuditTrailDao.*(..))) and (execution(* net.purwana.rads..*.save*(..)) or execution(* net.purwana.rads..*.delete*(..)) or execution(* net.purwana.rads..*.add*(..)) or execution(* net.purwana.rads..*.update*(..)))" order="1" />
+    </aop:config>
+
+</beans>

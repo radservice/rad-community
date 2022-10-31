@@ -1,0 +1,130 @@
+{
+    "className":"net.purwana.rads.apps.form.model.Form",
+    "properties":{
+        "id":"testFormC",
+        "loadBinder":{
+            "className":"net.purwana.rads.apps.form.lib.WorkflowFormBinder"
+        },
+        "tableName":"testFormC",
+        "name":"Form C",
+        "storeBinder":{
+            "className":"net.purwana.rads.apps.form.lib.WorkflowFormBinder"
+        }
+    },
+    "elements":[{
+        "elements":[{
+            "elements":[{
+                "className":"net.purwana.rads.apps.form.lib.TextField",
+                "properties":{
+                    "id":"bid",
+                    "workflowVariable":"",
+                    "validator":{
+                        "className":"",
+                        "properties":{}
+                    },
+                    "label":"bid",
+                    "readonly":"true",
+                    "size":""
+                }
+            },{
+                "className":"net.purwana.rads.apps.form.lib.TextField",
+                "properties":{
+                    "id":"c1",
+                    "workflowVariable":"",
+                    "validator":{
+                        "className":"",
+                        "properties":{}
+                    },
+                    "label":"Field c1",
+                    "readonly":"",
+                    "size":""
+                }
+            },{
+                "className":"net.purwana.rads.apps.form.lib.TextArea",
+                "properties":{
+                    "id":"c2",
+                    "cols":"20",
+                    "validator":{
+                        "className":"",
+                        "properties":{}
+                    },
+                    "label":"Field c2",
+                    "readonly":"",
+                    "rows":"5"
+                }
+            },{
+                "className":"net.purwana.rads.apps.form.lib.SubForm",
+                "properties":{
+                    "id":"formB",
+                    "parentSubFormId":"id",
+                    "subFormParentId":"",
+                    "label":"",
+                    "formDefId":"testFormB",
+                    "json":"",
+                    "readonly":"",
+                    "loadBinder": {
+                        "className": "net.purwana.rads.apps.form.lib.WorkflowFormBinder",
+                        "properties": {}
+                    },
+                    "storeBinder": {
+                        "className": "net.purwana.rads.apps.form.lib.WorkflowFormBinder",
+                        "properties": {}
+                    },
+                }
+            },{
+                "className":"net.purwana.rads.apps.form.lib.SelectBox",
+                "properties":{
+                   "id":"eref",
+                   "label":"Reference Field e",
+                   "value":"",
+                   "size":"",
+                   "multiple":"true",
+                   "readonly":"",
+                   "readonlyLabel":"",
+                   "options":[
+
+                   ],
+                   "controlField":"",
+                   "optionsBinder":{
+                      "className":"net.purwana.rads.apps.form.lib.FormOptionsBinder",
+                      "properties":{
+                         "formDefId":"testFormE",
+                         "idColumn":"id",
+                         "labelColumn":"e1",
+                         "groupingColumn":"",
+                         "extraCondition":"",
+                         "addEmptyOption":"",
+                         "emptyLabel":""
+                      }
+                   },
+                   "validator":{
+                      "className":"",
+                      "properties":{
+
+                      }
+                   },
+                   "workflowVariable":""
+                }
+            }],
+            "className":"net.purwana.rads.apps.form.model.Column",
+            "properties":{
+                "width":"99%"
+            }
+        }],
+        "className":"net.purwana.rads.apps.form.model.Section",
+        "properties":{
+            "id":"formCsection",
+            "loadBinder":{
+                "className":"",
+                "properties":{}
+            },
+            "visibilityControl":"",
+            "visibilityValue":"",
+            "storeBinder":{
+                "className":"",
+                "properties":{}
+            },
+            "label":"Form C"
+        }
+    }]
+}

@@ -1,0 +1,66 @@
+[{
+    title : '@@datalist.formrowdeletedatalistaction.editDeleteAction@@',
+    properties : [{
+        name : 'label',
+        label : '@@datalist.formrowdeletedatalistaction.label@@',
+        type : 'textfield',
+        required : 'true'
+    },
+    %s,{
+        name : 'confirmation',
+        label : '@@datalist.formrowdeletedatalistaction.confirmationMessage@@',
+        type : 'textfield'
+    },
+    {
+        name:'deleteGridData',
+        label:'@@datalist.formrowdeletedatalistaction.deleteGridData@@',
+        description:'@@datalist.formrowdeletedatalistaction.deleteGridData.desc@@',        
+        type:'checkbox',
+        value:'false',
+        options:[
+            {
+                value:'true',
+                label:''
+            }
+        ]
+    },
+    {
+        name:'deleteSubformData',
+        label:'@@datalist.formrowdeletedatalistaction.deleteChildFormData@@',
+        description:'@@datalist.formrowdeletedatalistaction.deleteChildFormData.desc@@',  
+        type:'checkbox',
+        value:'false',
+        options:[
+            {
+                value:'true',
+                label:''
+            }
+        ]
+    },
+    {
+        name:'deleteFiles',
+        label:'@@datalist.formrowdeletedatalistaction.deleteFiles@@',
+        description:'@@datalist.formrowdeletedatalistaction.deleteFiles.desc@@',  
+        type:'checkbox',
+        value:'false',
+        options:[
+            {
+                value:'true',
+                label:''
+            }
+        ]
+    },
+    {
+        name:'abortRelatedRunningProcesses',
+        label:'@@datalist.formrowdeletedatalistaction.abortRelatedRunningProcesses@@',
+        description:'@@datalist.formrowdeletedatalistaction.abortRelatedRunningProcesses.desc@@', 
+        type:'checkbox',
+        value:'false',
+        options:[
+            {
+                value:'true',
+                label:''
+            }
+        ]
+    }]
+}]

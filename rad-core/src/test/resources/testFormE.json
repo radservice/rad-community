@@ -1,0 +1,149 @@
+{
+   "className":"net.purwana.rads.apps.form.model.Form",
+   "properties":{
+      "id":"testFormE",
+      "name":"Form E",
+      "tableName":"testFormE",
+      "description":"",
+      "loadBinder":{
+         "className":"net.purwana.rads.apps.form.lib.WorkflowFormBinder",
+         "properties":{
+
+         }
+      },
+      "storeBinder":{
+         "className":"net.purwana.rads.apps.form.lib.WorkflowFormBinder",
+         "properties":{
+
+         }
+      },
+      "permission":{
+         "className":"",
+         "properties":{
+
+         }
+      },
+      "noPermissionMessage":""
+   },
+   "elements":[
+      {
+         "elements":[
+            {
+               "elements":[
+                  {
+                     "className":"net.purwana.rads.apps.form.lib.TextField",
+                     "properties":{
+                        "id":"id",
+                        "workflowVariable":"",
+                        "readonlyLabel":"",
+                        "maxlength":"",
+                        "validator":{
+                           "className":"",
+                           "properties":{
+
+                           }
+                        },
+                        "value":"",
+                        "label":"Field id",
+                        "readonly":"",
+                        "size":"",
+                        "elementUniqueKey":"9983"
+                     }
+                  },
+                  {
+                     "className":"net.purwana.rads.apps.form.lib.TextField",
+                     "properties":{
+                        "id":"e1",
+                        "workflowVariable":"",
+                        "readonlyLabel":"",
+                        "maxlength":"",
+                        "validator":{
+                           "className":"",
+                           "properties":{
+
+                           }
+                        },
+                        "value":"",
+                        "label":"Field e1",
+                        "readonly":"",
+                        "size":"",
+                        "elementUniqueKey":"9983"
+                     }
+                  },
+                  {
+                     "className":"net.purwana.rads.apps.form.lib.TextArea",
+                     "properties":{
+                        "id":"e2",
+                        "workflowVariable":"",
+                        "readonlyLabel":"",
+                        "cols":"20",
+                        "validator":{
+                           "className":"",
+                           "properties":{
+
+                           }
+                        },
+                        "value":"",
+                        "label":"Field e2",
+                        "readonly":"",
+                        "rows":"5",
+                        "elementUniqueKey":"9984"
+                     }
+                  },
+                  {
+                     "className":"net.purwana.rads.apps.form.lib.TextField",
+                     "properties":{
+                        "id":"e3",
+                        "workflowVariable":"",
+                        "readonlyLabel":"",
+                        "maxlength":"",
+                        "validator":{
+                           "className":"",
+                           "properties":{
+
+                           }
+                        },
+                        "value":"",
+                        "label":"Field e3",
+                        "readonly":"",
+                        "size":"",
+                        "elementUniqueKey":"9985"
+                     }
+                  }
+               ],
+               "className":"net.purwana.rads.apps.form.model.Column",
+               "properties":{
+                  "width":"100%",
+                  "elementUniqueKey":"9974"
+               }
+            }
+         ],
+         "className":"net.purwana.rads.apps.form.model.Section",
+         "properties":{
+            "id":"formEsection",
+            "label":"Form E",
+            "loadBinder":{
+               "className":"",
+               "properties":{
+
+               }
+            },
+            "storeBinder":{
+               "className":"",
+               "properties":{
+
+               }
+            },
+            "visibilityControl":"",
+            "visibilityValue":"",
+            "regex":"",
+            "permission":{
+               "className":"",
+               "properties":{
+
+               }
+            }
+         }
+      }
+   ]
+}

@@ -1,0 +1,1262 @@
+[{
+    title : '@@theme.universal.config@@',
+    properties : [
+    {
+        name : 'horizontal_menu',
+        label : '@@theme.universal.menu_position@@',
+        type : 'selectbox',
+        options : [{
+            value : '',
+            label : '@@theme.universal.menu.sideMenu@@'
+        },
+        {
+            value : 'true',
+            label : '@@theme.universal.menu.horizontalMenu@@'
+        },
+        {
+            value : 'horizontal_inline',
+            label : '@@theme.universal.menu.inlineHorizontalMenu@@'
+        },
+        {
+            value : 'no',
+            label : '@@theme.universal.menu.no@@'
+        }]
+    },
+    {
+        name : 'themeScheme',
+        label : '@@theme.universal.themeScheme@@',
+        type : 'selectbox',
+        value: 'light',
+        options : [{
+            value : 'dark',
+            label : '@@theme.universal.themeScheme.dark@@'
+        },{
+            value : 'light',
+            label : '@@theme.universal.themeScheme.light@@'
+        }]
+    },
+    {
+        name : 'primaryColor',
+        label : '@@theme.universal.primaryColor@@',
+        type : 'selectbox',
+        options_label_processor : 'color',
+        value: 'DARKROYALBLUE',
+        options : [{
+            value : '',
+            label : ''
+        },{
+            value : 'RED',
+            label : '@@theme.universal.colorScheme.red@@'
+        },{
+            value : 'PINK',
+            label : '@@theme.universal.colorScheme.pink@@'
+        },{
+            value : 'LAVENDERBLUSH',
+            label : '@@theme.universal.colorScheme.lavenderBlush@@'
+        },{
+            value : 'THISTLE',
+            label : '@@theme.universal.colorScheme.thistle@@'
+        },{
+            value : 'PLUM',
+            label : '@@theme.universal.colorScheme.plum@@'
+        },{
+            value : 'PURPLE',
+            label : '@@theme.universal.colorScheme.purple@@'
+        },{
+            value : 'DEEP_PURPLE',
+            label : '@@theme.universal.colorScheme.deepPurple@@'
+        },{
+            value : 'INDIGO',
+            label : '@@theme.universal.colorScheme.indigo@@'
+        },{
+            value : 'LAVENDER',
+            label : '@@theme.universal.colorScheme.lavender@@'
+        },{
+            value : 'GHOSTWHITE',
+            label : '@@theme.universal.colorScheme.ghostWhite@@'
+        },{
+            value : 'BLUE',
+            label : '@@theme.universal.colorScheme.blue@@'
+        },{
+            value : 'LIGHT_BLUE',
+            label : '@@theme.universal.colorScheme.lightBlue@@'
+        },{
+            value : 'DARKROYALBLUE',
+            label : '@@theme.universal.colorScheme.darkRoyalBlue@@'
+        },{
+            value : 'ROYALBLUE',
+            label : '@@theme.universal.colorScheme.royalBlue@@'
+        },{
+            value : 'CORNFLOWERBLUE',
+            label : '@@theme.universal.colorScheme.cornflowerBlue@@'
+        },{
+            value : 'ALICEBLUE',
+            label : '@@theme.universal.colorScheme.aliceBlue@@'
+        },{
+            value : 'LIGHTSTEELBLUE',
+            label : '@@theme.universal.colorScheme.lightSteelBlue@@'
+        },{
+            value : 'STEELBLUE',
+            label : '@@theme.universal.colorScheme.steelBlue@@'
+        },{
+            value : 'LIGHTSKYBLUE',
+            label : '@@theme.universal.colorScheme.lightSkyBlue@@'
+        },{
+            value : 'SKYBLUE',
+            label : '@@theme.universal.colorScheme.skyBlue@@'
+        },{
+            value : 'DEEPSKYBLUE',
+            label : '@@theme.universal.colorScheme.deepSkyBlue@@'
+        },{
+            value : 'AZURE',
+            label : '@@theme.universal.colorScheme.azure@@'
+        },{
+            value : 'LIGHTCYAN',
+            label : '@@theme.universal.colorScheme.lightCyan@@'
+        },{
+            value : 'CYAN',
+            label : '@@theme.universal.colorScheme.cyan@@'
+        },{
+            value : 'TEAL',
+            label : '@@theme.universal.colorScheme.teal@@'
+        },{
+            value : 'GREEN',
+            label : '@@theme.universal.colorScheme.green@@'
+        },{
+            value : 'LIGHT_GREEN',
+            label : '@@theme.universal.colorScheme.lightGreen@@'
+        },{
+            value : 'LIME',
+            label : '@@theme.universal.colorScheme.lime@@'
+        },{
+            value : 'IVORY',
+            label : '@@theme.universal.colorScheme.ivory@@'
+        },{
+            value : 'LEMONCHIFFON',
+            label : '@@theme.universal.colorScheme.lemonChiffon@@'
+        },{
+            value : 'WHEAT',
+            label : '@@theme.universal.colorScheme.wheat@@'
+        },{
+            value : 'YELLOW',
+            label : '@@theme.universal.colorScheme.yellow@@'
+        },{
+            value : 'AMBER',
+            label : '@@theme.universal.colorScheme.amber@@'
+        },{
+            value : 'ORANGE',
+            label : '@@theme.universal.colorScheme.orange@@'
+        },{
+            value : 'DEEP_ORANGE',
+            label : '@@theme.universal.colorScheme.deepOrange@@'
+        },{
+            value : 'BROWN',
+            label : '@@theme.universal.colorScheme.brown@@'
+        },{
+            value : 'LIGHTGREY',
+            label : '@@theme.universal.colorScheme.lightGrey@@'
+        },{
+            value : 'GREY',
+            label : '@@theme.universal.colorScheme.grey@@'
+        },{
+            value : 'BLUE_GREY',
+            label : '@@theme.universal.colorScheme.blueGrey@@'
+        },{
+            value : 'DEEP_GREY',
+            label : '@@theme.universal.colorScheme.deepGrey@@'
+        },{
+            value : 'SILVER',
+            label : '@@theme.universal.colorScheme.silver@@'
+        },{
+            value : 'BLACK',
+            label : '@@theme.universal.colorScheme.black@@'
+        },{
+            value : 'WHITE',
+            label : '@@theme.universal.colorScheme.white@@'
+        },{
+            value : 'custom',
+            label : '@@theme.universal.colorScheme.custom@@'
+        }]
+    },
+    {
+        name : 'customPrimary',
+        label : '@@theme.universal.customPrimary@@',
+        type : 'color',
+        control_field: 'primaryColor',
+        control_value: 'custom',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'customPrimaryDark',
+        label : '@@theme.universal.customPrimaryDark@@',
+        type : 'color',
+        control_field: 'primaryColor',
+        control_value: 'custom',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'customPrimaryLight',
+        label : '@@theme.universal.customPrimaryLight@@',
+        type : 'color',
+        control_field: 'primaryColor',
+        control_value: 'custom',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'accentColor',
+        label : '@@theme.universal.accentColor@@',
+        type : 'selectbox',
+        options_label_processor : 'color',
+        value: 'BLUE',
+        options : [{
+            value : '',
+            label : ''
+        },{
+            value : 'RED',
+            label : '@@theme.universal.colorScheme.red@@'
+        },{
+            value : 'PINK',
+            label : '@@theme.universal.colorScheme.pink@@'
+        },{
+            value : 'LAVENDERBLUSH',
+            label : '@@theme.universal.colorScheme.lavenderBlush@@'
+        },{
+            value : 'THISTLE',
+            label : '@@theme.universal.colorScheme.thistle@@'
+        },{
+            value : 'PLUM',
+            label : '@@theme.universal.colorScheme.plum@@'
+        },{
+            value : 'PURPLE',
+            label : '@@theme.universal.colorScheme.purple@@'
+        },{
+            value : 'DEEP_PURPLE',
+            label : '@@theme.universal.colorScheme.deepPurple@@'
+        },{
+            value : 'INDIGO',
+            label : '@@theme.universal.colorScheme.indigo@@'
+        },{
+            value : 'LAVENDER',
+            label : '@@theme.universal.colorScheme.lavender@@'
+        },{
+            value : 'GHOSTWHITE',
+            label : '@@theme.universal.colorScheme.ghostWhite@@'
+        },{
+            value : 'BLUE',
+            label : '@@theme.universal.colorScheme.blue@@'
+        },{
+            value : 'LIGHT_BLUE',
+            label : '@@theme.universal.colorScheme.lightBlue@@'
+        },{
+            value : 'DARKROYALBLUE',
+            label : '@@theme.universal.colorScheme.darkRoyalBlue@@'
+        },{
+            value : 'ROYALBLUE',
+            label : '@@theme.universal.colorScheme.royalBlue@@'
+        },{
+            value : 'CORNFLOWERBLUE',
+            label : '@@theme.universal.colorScheme.cornflowerBlue@@'
+        },{
+            value : 'ALICEBLUE',
+            label : '@@theme.universal.colorScheme.aliceBlue@@'
+        },{
+            value : 'LIGHTSTEELBLUE',
+            label : '@@theme.universal.colorScheme.lightSteelBlue@@'
+        },{
+            value : 'STEELBLUE',
+            label : '@@theme.universal.colorScheme.steelBlue@@'
+        },{
+            value : 'LIGHTSKYBLUE',
+            label : '@@theme.universal.colorScheme.lightSkyBlue@@'
+        },{
+            value : 'SKYBLUE',
+            label : '@@theme.universal.colorScheme.skyBlue@@'
+        },{
+            value : 'DEEPSKYBLUE',
+            label : '@@theme.universal.colorScheme.deepSkyBlue@@'
+        },{
+            value : 'AZURE',
+            label : '@@theme.universal.colorScheme.azure@@'
+        },{
+            value : 'LIGHTCYAN',
+            label : '@@theme.universal.colorScheme.lightCyan@@'
+        },{
+            value : 'CYAN',
+            label : '@@theme.universal.colorScheme.cyan@@'
+        },{
+            value : 'TEAL',
+            label : '@@theme.universal.colorScheme.teal@@'
+        },{
+            value : 'GREEN',
+            label : '@@theme.universal.colorScheme.green@@'
+        },{
+            value : 'LIGHT_GREEN',
+            label : '@@theme.universal.colorScheme.lightGreen@@'
+        },{
+            value : 'LIME',
+            label : '@@theme.universal.colorScheme.lime@@'
+        },{
+            value : 'IVORY',
+            label : '@@theme.universal.colorScheme.ivory@@'
+        },{
+            value : 'LEMONCHIFFON',
+            label : '@@theme.universal.colorScheme.lemonChiffon@@'
+        },{
+            value : 'WHEAT',
+            label : '@@theme.universal.colorScheme.wheat@@'
+        },{
+            value : 'YELLOW',
+            label : '@@theme.universal.colorScheme.yellow@@'
+        },{
+            value : 'AMBER',
+            label : '@@theme.universal.colorScheme.amber@@'
+        },{
+            value : 'ORANGE',
+            label : '@@theme.universal.colorScheme.orange@@'
+        },{
+            value : 'DEEP_ORANGE',
+            label : '@@theme.universal.colorScheme.deepOrange@@'
+        },{
+            value : 'BROWN',
+            label : '@@theme.universal.colorScheme.brown@@'
+        },{
+            value : 'LIGHTGREY',
+            label : '@@theme.universal.colorScheme.lightGrey@@'
+        },{
+            value : 'GREY',
+            label : '@@theme.universal.colorScheme.grey@@'
+        },{
+            value : 'BLUE_GREY',
+            label : '@@theme.universal.colorScheme.blueGrey@@'
+        },{
+            value : 'DEEP_GREY',
+            label : '@@theme.universal.colorScheme.deepGrey@@'
+        },{
+            value : 'SILVER',
+            label : '@@theme.universal.colorScheme.silver@@'
+        },{
+            value : 'BLACK',
+            label : '@@theme.universal.colorScheme.black@@'
+        },{
+            value : 'WHITE',
+            label : '@@theme.universal.colorScheme.white@@'
+        },{
+            value : 'custom',
+            label : '@@theme.universal.colorScheme.custom@@'
+        }]
+    },
+    {
+        name : 'customAccent',
+        label : '@@theme.universal.customAccent@@',
+        type : 'color',
+        control_field: 'accentColor',
+        control_value: 'custom',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'customAccentLight',
+        label : '@@theme.universal.customAccentLight@@',
+        type : 'color',
+        control_field: 'accentColor',
+        control_value: 'custom',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'buttonColor',
+        label : '@@theme.universal.buttonColor@@',
+        type : 'selectbox',
+        options_label_processor : 'color',
+        value: 'GREY',
+        options : [{
+            value : '',
+            label : ''
+        },{
+            value : 'RED',
+            label : '@@theme.universal.colorScheme.red@@'
+        },{
+            value : 'PINK',
+            label : '@@theme.universal.colorScheme.pink@@'
+        },{
+            value : 'LAVENDERBLUSH',
+            label : '@@theme.universal.colorScheme.lavenderBlush@@'
+        },{
+            value : 'THISTLE',
+            label : '@@theme.universal.colorScheme.thistle@@'
+        },{
+            value : 'PLUM',
+            label : '@@theme.universal.colorScheme.plum@@'
+        },{
+            value : 'PURPLE',
+            label : '@@theme.universal.colorScheme.purple@@'
+        },{
+            value : 'DEEP_PURPLE',
+            label : '@@theme.universal.colorScheme.deepPurple@@'
+        },{
+            value : 'INDIGO',
+            label : '@@theme.universal.colorScheme.indigo@@'
+        },{
+            value : 'LAVENDER',
+            label : '@@theme.universal.colorScheme.lavender@@'
+        },{
+            value : 'GHOSTWHITE',
+            label : '@@theme.universal.colorScheme.ghostWhite@@'
+        },{
+            value : 'BLUE',
+            label : '@@theme.universal.colorScheme.blue@@'
+        },{
+            value : 'LIGHT_BLUE',
+            label : '@@theme.universal.colorScheme.lightBlue@@'
+        },{
+            value : 'DARKROYALBLUE',
+            label : '@@theme.universal.colorScheme.darkRoyalBlue@@'
+        },{
+            value : 'ROYALBLUE',
+            label : '@@theme.universal.colorScheme.royalBlue@@'
+        },{
+            value : 'CORNFLOWERBLUE',
+            label : '@@theme.universal.colorScheme.cornflowerBlue@@'
+        },{
+            value : 'ALICEBLUE',
+            label : '@@theme.universal.colorScheme.aliceBlue@@'
+        },{
+            value : 'LIGHTSTEELBLUE',
+            label : '@@theme.universal.colorScheme.lightSteelBlue@@'
+        },{
+            value : 'STEELBLUE',
+            label : '@@theme.universal.colorScheme.steelBlue@@'
+        },{
+            value : 'LIGHTSKYBLUE',
+            label : '@@theme.universal.colorScheme.lightSkyBlue@@'
+        },{
+            value : 'SKYBLUE',
+            label : '@@theme.universal.colorScheme.skyBlue@@'
+        },{
+            value : 'DEEPSKYBLUE',
+            label : '@@theme.universal.colorScheme.deepSkyBlue@@'
+        },{
+            value : 'AZURE',
+            label : '@@theme.universal.colorScheme.azure@@'
+        },{
+            value : 'LIGHTCYAN',
+            label : '@@theme.universal.colorScheme.lightCyan@@'
+        },{
+            value : 'CYAN',
+            label : '@@theme.universal.colorScheme.cyan@@'
+        },{
+            value : 'TEAL',
+            label : '@@theme.universal.colorScheme.teal@@'
+        },{
+            value : 'GREEN',
+            label : '@@theme.universal.colorScheme.green@@'
+        },{
+            value : 'LIGHT_GREEN',
+            label : '@@theme.universal.colorScheme.lightGreen@@'
+        },{
+            value : 'LIME',
+            label : '@@theme.universal.colorScheme.lime@@'
+        },{
+            value : 'IVORY',
+            label : '@@theme.universal.colorScheme.ivory@@'
+        },{
+            value : 'LEMONCHIFFON',
+            label : '@@theme.universal.colorScheme.lemonChiffon@@'
+        },{
+            value : 'WHEAT',
+            label : '@@theme.universal.colorScheme.wheat@@'
+        },{
+            value : 'YELLOW',
+            label : '@@theme.universal.colorScheme.yellow@@'
+        },{
+            value : 'AMBER',
+            label : '@@theme.universal.colorScheme.amber@@'
+        },{
+            value : 'ORANGE',
+            label : '@@theme.universal.colorScheme.orange@@'
+        },{
+            value : 'DEEP_ORANGE',
+            label : '@@theme.universal.colorScheme.deepOrange@@'
+        },{
+            value : 'BROWN',
+            label : '@@theme.universal.colorScheme.brown@@'
+        },{
+            value : 'LIGHTGREY',
+            label : '@@theme.universal.colorScheme.lightGrey@@'
+        },{
+            value : 'GREY',
+            label : '@@theme.universal.colorScheme.grey@@'
+        },{
+            value : 'BLUE_GREY',
+            label : '@@theme.universal.colorScheme.blueGrey@@'
+        },{
+            value : 'DEEP_GREY',
+            label : '@@theme.universal.colorScheme.deepGrey@@'
+        },{
+            value : 'SILVER',
+            label : '@@theme.universal.colorScheme.silver@@'
+        },{
+            value : 'BLACK',
+            label : '@@theme.universal.colorScheme.black@@'
+        },{
+            value : 'WHITE',
+            label : '@@theme.universal.colorScheme.white@@'
+        },{
+            value : 'custom',
+            label : '@@theme.universal.colorScheme.custom@@'
+        }]
+    },
+    {
+        name : 'customButton',
+        label : '@@theme.universal.customButton@@',
+        type : 'color',
+        control_field: 'buttonColor',
+        control_value: 'custom',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'buttonTextColor',
+        label : '@@theme.universal.buttonTextColor@@',
+        type : 'selectbox',
+        options_label_processor : 'color',
+        value: 'WHITE',
+        options : [{
+            value : '',
+            label : ''
+        },{
+            value : 'RED',
+            label : '@@theme.universal.colorScheme.red@@'
+        },{
+            value : 'PINK',
+            label : '@@theme.universal.colorScheme.pink@@'
+        },{
+            value : 'LAVENDERBLUSH',
+            label : '@@theme.universal.colorScheme.lavenderBlush@@'
+        },{
+            value : 'THISTLE',
+            label : '@@theme.universal.colorScheme.thistle@@'
+        },{
+            value : 'PLUM',
+            label : '@@theme.universal.colorScheme.plum@@'
+        },{
+            value : 'PURPLE',
+            label : '@@theme.universal.colorScheme.purple@@'
+        },{
+            value : 'DEEP_PURPLE',
+            label : '@@theme.universal.colorScheme.deepPurple@@'
+        },{
+            value : 'INDIGO',
+            label : '@@theme.universal.colorScheme.indigo@@'
+        },{
+            value : 'LAVENDER',
+            label : '@@theme.universal.colorScheme.lavender@@'
+        },{
+            value : 'GHOSTWHITE',
+            label : '@@theme.universal.colorScheme.ghostWhite@@'
+        },{
+            value : 'BLUE',
+            label : '@@theme.universal.colorScheme.blue@@'
+        },{
+            value : 'LIGHT_BLUE',
+            label : '@@theme.universal.colorScheme.lightBlue@@'
+        },{
+            value : 'DARKROYALBLUE',
+            label : '@@theme.universal.colorScheme.darkRoyalBlue@@'
+        },{
+            value : 'ROYALBLUE',
+            label : '@@theme.universal.colorScheme.royalBlue@@'
+        },{
+            value : 'CORNFLOWERBLUE',
+            label : '@@theme.universal.colorScheme.cornflowerBlue@@'
+        },{
+            value : 'ALICEBLUE',
+            label : '@@theme.universal.colorScheme.aliceBlue@@'
+        },{
+            value : 'LIGHTSTEELBLUE',
+            label : '@@theme.universal.colorScheme.lightSteelBlue@@'
+        },{
+            value : 'STEELBLUE',
+            label : '@@theme.universal.colorScheme.steelBlue@@'
+        },{
+            value : 'LIGHTSKYBLUE',
+            label : '@@theme.universal.colorScheme.lightSkyBlue@@'
+        },{
+            value : 'SKYBLUE',
+            label : '@@theme.universal.colorScheme.skyBlue@@'
+        },{
+            value : 'DEEPSKYBLUE',
+            label : '@@theme.universal.colorScheme.deepSkyBlue@@'
+        },{
+            value : 'AZURE',
+            label : '@@theme.universal.colorScheme.azure@@'
+        },{
+            value : 'LIGHTCYAN',
+            label : '@@theme.universal.colorScheme.lightCyan@@'
+        },{
+            value : 'CYAN',
+            label : '@@theme.universal.colorScheme.cyan@@'
+        },{
+            value : 'TEAL',
+            label : '@@theme.universal.colorScheme.teal@@'
+        },{
+            value : 'GREEN',
+            label : '@@theme.universal.colorScheme.green@@'
+        },{
+            value : 'LIGHT_GREEN',
+            label : '@@theme.universal.colorScheme.lightGreen@@'
+        },{
+            value : 'LIME',
+            label : '@@theme.universal.colorScheme.lime@@'
+        },{
+            value : 'IVORY',
+            label : '@@theme.universal.colorScheme.ivory@@'
+        },{
+            value : 'LEMONCHIFFON',
+            label : '@@theme.universal.colorScheme.lemonChiffon@@'
+        },{
+            value : 'WHEAT',
+            label : '@@theme.universal.colorScheme.wheat@@'
+        },{
+            value : 'YELLOW',
+            label : '@@theme.universal.colorScheme.yellow@@'
+        },{
+            value : 'AMBER',
+            label : '@@theme.universal.colorScheme.amber@@'
+        },{
+            value : 'ORANGE',
+            label : '@@theme.universal.colorScheme.orange@@'
+        },{
+            value : 'DEEP_ORANGE',
+            label : '@@theme.universal.colorScheme.deepOrange@@'
+        },{
+            value : 'BROWN',
+            label : '@@theme.universal.colorScheme.brown@@'
+        },{
+            value : 'LIGHTGREY',
+            label : '@@theme.universal.colorScheme.lightGrey@@'
+        },{
+            value : 'GREY',
+            label : '@@theme.universal.colorScheme.grey@@'
+        },{
+            value : 'BLUE_GREY',
+            label : '@@theme.universal.colorScheme.blueGrey@@'
+        },{
+            value : 'DEEP_GREY',
+            label : '@@theme.universal.colorScheme.deepGrey@@'
+        },{
+            value : 'SILVER',
+            label : '@@theme.universal.colorScheme.silver@@'
+        },{
+            value : 'BLACK',
+            label : '@@theme.universal.colorScheme.black@@'
+        },{
+            value : 'WHITE',
+            label : '@@theme.universal.colorScheme.white@@'
+        },{
+            value : 'custom',
+            label : '@@theme.universal.colorScheme.custom@@'
+        }]
+    },
+    {
+        name : 'customButtonText',
+        label : '@@theme.universal.customButtonText@@',
+        type : 'color',
+        control_field: 'buttonTextColor',
+        control_value: 'custom',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'menuFontColor',
+        label : '@@theme.universal.menuFontColor@@',
+        type : 'selectbox',
+        options_label_processor : 'color',
+        value: 'BLACK',
+        options : [{
+            value : '',
+            label : ''
+        },{
+            value : 'RED',
+            label : '@@theme.universal.colorScheme.red@@'
+        },{
+            value : 'PINK',
+            label : '@@theme.universal.colorScheme.pink@@'
+        },{
+            value : 'LAVENDERBLUSH',
+            label : '@@theme.universal.colorScheme.lavenderBlush@@'
+        },{
+            value : 'THISTLE',
+            label : '@@theme.universal.colorScheme.thistle@@'
+        },{
+            value : 'PLUM',
+            label : '@@theme.universal.colorScheme.plum@@'
+        },{
+            value : 'PURPLE',
+            label : '@@theme.universal.colorScheme.purple@@'
+        },{
+            value : 'DEEP_PURPLE',
+            label : '@@theme.universal.colorScheme.deepPurple@@'
+        },{
+            value : 'INDIGO',
+            label : '@@theme.universal.colorScheme.indigo@@'
+        },{
+            value : 'LAVENDER',
+            label : '@@theme.universal.colorScheme.lavender@@'
+        },{
+            value : 'GHOSTWHITE',
+            label : '@@theme.universal.colorScheme.ghostWhite@@'
+        },{
+            value : 'BLUE',
+            label : '@@theme.universal.colorScheme.blue@@'
+        },{
+            value : 'LIGHT_BLUE',
+            label : '@@theme.universal.colorScheme.lightBlue@@'
+        },{
+            value : 'DARKROYALBLUE',
+            label : '@@theme.universal.colorScheme.darkRoyalBlue@@'
+        },{
+            value : 'ROYALBLUE',
+            label : '@@theme.universal.colorScheme.royalBlue@@'
+        },{
+            value : 'CORNFLOWERBLUE',
+            label : '@@theme.universal.colorScheme.cornflowerBlue@@'
+        },{
+            value : 'ALICEBLUE',
+            label : '@@theme.universal.colorScheme.aliceBlue@@'
+        },{
+            value : 'LIGHTSTEELBLUE',
+            label : '@@theme.universal.colorScheme.lightSteelBlue@@'
+        },{
+            value : 'STEELBLUE',
+            label : '@@theme.universal.colorScheme.steelBlue@@'
+        },{
+            value : 'LIGHTSKYBLUE',
+            label : '@@theme.universal.colorScheme.lightSkyBlue@@'
+        },{
+            value : 'SKYBLUE',
+            label : '@@theme.universal.colorScheme.skyBlue@@'
+        },{
+            value : 'DEEPSKYBLUE',
+            label : '@@theme.universal.colorScheme.deepSkyBlue@@'
+        },{
+            value : 'AZURE',
+            label : '@@theme.universal.colorScheme.azure@@'
+        },{
+            value : 'LIGHTCYAN',
+            label : '@@theme.universal.colorScheme.lightCyan@@'
+        },{
+            value : 'CYAN',
+            label : '@@theme.universal.colorScheme.cyan@@'
+        },{
+            value : 'TEAL',
+            label : '@@theme.universal.colorScheme.teal@@'
+        },{
+            value : 'GREEN',
+            label : '@@theme.universal.colorScheme.green@@'
+        },{
+            value : 'LIGHT_GREEN',
+            label : '@@theme.universal.colorScheme.lightGreen@@'
+        },{
+            value : 'LIME',
+            label : '@@theme.universal.colorScheme.lime@@'
+        },{
+            value : 'IVORY',
+            label : '@@theme.universal.colorScheme.ivory@@'
+        },{
+            value : 'LEMONCHIFFON',
+            label : '@@theme.universal.colorScheme.lemonChiffon@@'
+        },{
+            value : 'WHEAT',
+            label : '@@theme.universal.colorScheme.wheat@@'
+        },{
+            value : 'YELLOW',
+            label : '@@theme.universal.colorScheme.yellow@@'
+        },{
+            value : 'AMBER',
+            label : '@@theme.universal.colorScheme.amber@@'
+        },{
+            value : 'ORANGE',
+            label : '@@theme.universal.colorScheme.orange@@'
+        },{
+            value : 'DEEP_ORANGE',
+            label : '@@theme.universal.colorScheme.deepOrange@@'
+        },{
+            value : 'BROWN',
+            label : '@@theme.universal.colorScheme.brown@@'
+        },{
+            value : 'LIGHTGREY',
+            label : '@@theme.universal.colorScheme.lightGrey@@'
+        },{
+            value : 'GREY',
+            label : '@@theme.universal.colorScheme.grey@@'
+        },{
+            value : 'BLUE_GREY',
+            label : '@@theme.universal.colorScheme.blueGrey@@'
+        },{
+            value : 'DEEP_GREY',
+            label : '@@theme.universal.colorScheme.deepGrey@@'
+        },{
+            value : 'SILVER',
+            label : '@@theme.universal.colorScheme.silver@@'
+        },{
+            value : 'BLACK',
+            label : '@@theme.universal.colorScheme.black@@'
+        },{
+            value : 'WHITE',
+            label : '@@theme.universal.colorScheme.white@@'
+        },{
+            value : 'custom',
+            label : '@@theme.universal.colorScheme.custom@@'
+        }],
+        control_field: 'themeScheme',
+        control_value: 'light',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'customMenuFontColor',
+        label : '@@theme.universal.customMenuFontColor@@',
+        type : 'color',
+        control_field: 'menuFontColor',
+        control_value: 'custom',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'fontColor',
+        label : '@@theme.universal.fontColor@@',
+        type : 'selectbox',
+        options_label_processor : 'color',
+        value: 'WHITE',
+        options : [{
+            value : '',
+            label : ''
+        },{
+            value : 'RED',
+            label : '@@theme.universal.colorScheme.red@@'
+        },{
+            value : 'PINK',
+            label : '@@theme.universal.colorScheme.pink@@'
+        },{
+            value : 'LAVENDERBLUSH',
+            label : '@@theme.universal.colorScheme.lavenderBlush@@'
+        },{
+            value : 'THISTLE',
+            label : '@@theme.universal.colorScheme.thistle@@'
+        },{
+            value : 'PLUM',
+            label : '@@theme.universal.colorScheme.plum@@'
+        },{
+            value : 'PURPLE',
+            label : '@@theme.universal.colorScheme.purple@@'
+        },{
+            value : 'DEEP_PURPLE',
+            label : '@@theme.universal.colorScheme.deepPurple@@'
+        },{
+            value : 'INDIGO',
+            label : '@@theme.universal.colorScheme.indigo@@'
+        },{
+            value : 'LAVENDER',
+            label : '@@theme.universal.colorScheme.lavender@@'
+        },{
+            value : 'GHOSTWHITE',
+            label : '@@theme.universal.colorScheme.ghostWhite@@'
+        },{
+            value : 'BLUE',
+            label : '@@theme.universal.colorScheme.blue@@'
+        },{
+            value : 'LIGHT_BLUE',
+            label : '@@theme.universal.colorScheme.lightBlue@@'
+        },{
+            value : 'DARKROYALBLUE',
+            label : '@@theme.universal.colorScheme.darkRoyalBlue@@'
+        },{
+            value : 'ROYALBLUE',
+            label : '@@theme.universal.colorScheme.royalBlue@@'
+        },{
+            value : 'CORNFLOWERBLUE',
+            label : '@@theme.universal.colorScheme.cornflowerBlue@@'
+        },{
+            value : 'ALICEBLUE',
+            label : '@@theme.universal.colorScheme.aliceBlue@@'
+        },{
+            value : 'LIGHTSTEELBLUE',
+            label : '@@theme.universal.colorScheme.lightSteelBlue@@'
+        },{
+            value : 'STEELBLUE',
+            label : '@@theme.universal.colorScheme.steelBlue@@'
+        },{
+            value : 'LIGHTSKYBLUE',
+            label : '@@theme.universal.colorScheme.lightSkyBlue@@'
+        },{
+            value : 'SKYBLUE',
+            label : '@@theme.universal.colorScheme.skyBlue@@'
+        },{
+            value : 'DEEPSKYBLUE',
+            label : '@@theme.universal.colorScheme.deepSkyBlue@@'
+        },{
+            value : 'AZURE',
+            label : '@@theme.universal.colorScheme.azure@@'
+        },{
+            value : 'LIGHTCYAN',
+            label : '@@theme.universal.colorScheme.lightCyan@@'
+        },{
+            value : 'CYAN',
+            label : '@@theme.universal.colorScheme.cyan@@'
+        },{
+            value : 'TEAL',
+            label : '@@theme.universal.colorScheme.teal@@'
+        },{
+            value : 'GREEN',
+            label : '@@theme.universal.colorScheme.green@@'
+        },{
+            value : 'LIGHT_GREEN',
+            label : '@@theme.universal.colorScheme.lightGreen@@'
+        },{
+            value : 'LIME',
+            label : '@@theme.universal.colorScheme.lime@@'
+        },{
+            value : 'IVORY',
+            label : '@@theme.universal.colorScheme.ivory@@'
+        },{
+            value : 'LEMONCHIFFON',
+            label : '@@theme.universal.colorScheme.lemonChiffon@@'
+        },{
+            value : 'WHEAT',
+            label : '@@theme.universal.colorScheme.wheat@@'
+        },{
+            value : 'YELLOW',
+            label : '@@theme.universal.colorScheme.yellow@@'
+        },{
+            value : 'AMBER',
+            label : '@@theme.universal.colorScheme.amber@@'
+        },{
+            value : 'ORANGE',
+            label : '@@theme.universal.colorScheme.orange@@'
+        },{
+            value : 'DEEP_ORANGE',
+            label : '@@theme.universal.colorScheme.deepOrange@@'
+        },{
+            value : 'BROWN',
+            label : '@@theme.universal.colorScheme.brown@@'
+        },{
+            value : 'LIGHTGREY',
+            label : '@@theme.universal.colorScheme.lightGrey@@'
+        },{
+            value : 'GREY',
+            label : '@@theme.universal.colorScheme.grey@@'
+        },{
+            value : 'BLUE_GREY',
+            label : '@@theme.universal.colorScheme.blueGrey@@'
+        },{
+            value : 'DEEP_GREY',
+            label : '@@theme.universal.colorScheme.deepGrey@@'
+        },{
+            value : 'SILVER',
+            label : '@@theme.universal.colorScheme.silver@@'
+        },{
+            value : 'BLACK',
+            label : '@@theme.universal.colorScheme.black@@'
+        },{
+            value : 'WHITE',
+            label : '@@theme.universal.colorScheme.white@@'
+        },{
+            value : 'custom',
+            label : '@@theme.universal.colorScheme.custom@@'
+        }]
+    },
+    {
+        name : 'customFontColor',
+        label : '@@theme.universal.customFontColor@@',
+        type : 'color',
+        control_field: 'fontColor',
+        control_value: 'custom',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'fontControl',
+        label : '@@theme.universal.fontControl@@',
+        type : 'checkbox',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    }],
+},
+{
+    title : '@@theme.universal.advanced@@',
+    properties : [
+    {
+        name : 'fav_icon',
+        label : '@@theme.universal.favIcon@@',
+        type: 'image',
+        appPath: '[APP_PATH]',
+        allowInput : 'true',
+        isPublic : 'true',
+        imageSize : 'width:16px;height:16px;'
+    },
+    {
+        name : 'logo',
+        label : '@@theme.universal.logo@@',
+        type: 'image',
+        appPath: '[APP_PATH]',
+        allowInput : 'true',
+        isPublic : 'true',
+        imageSize : 'width:80px; height:35px; background-size: contain; background-repeat: no-repeat;'
+    },
+    {
+        name : 'profile',
+        label : '@@theme.universal.disabledProfile@@',
+        type : 'checkbox',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        name : 'userImage',
+        label : '@@theme.universal.userImage@@',
+        type : 'selectbox',
+        value : '',
+        options : [{
+            value : 'no',
+            label : '@@theme.universal.userImage.no@@'
+        },{
+            value : '',
+            label : '@@theme.universal.userImage.gravatar@@'
+        },{
+            value : 'hashVariable',
+            label : '@@theme.universal.userImage.hashVariable@@'
+        }]
+    },
+    {
+        name : 'userImageUrlHash',
+        label : '@@theme.universal.userImageUrlHash@@',
+        type : 'textfield',
+        control_field: 'userImage',
+        control_value: 'hashVariable',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'inbox',
+        label : '@@theme.universal.inbox@@',
+        type : 'selectbox',
+        value : 'current',
+        options : [{
+            value : '',
+            label : '@@theme.universal.inbox.no@@'
+        },{
+            value : 'all',
+            label : '@@theme.universal.inbox.all@@'
+        },{
+            value : 'current',
+            label : '@@theme.universal.inbox.current@@'
+        }]
+    },    
+    {
+        name : 'homeUrl',
+        label : '@@theme.universal.homeUrl@@',
+        type : 'textfield'
+    },    
+    {
+        name : 'shortcutLinkLabel',
+        label : '@@theme.universal.shortcutLinkLabel@@',
+        value : '@@theme.universal.shortcut@@',
+        type : 'textfield'
+    },
+    {
+        name : 'shortcut',
+        label : '@@theme.universal.shortcut@@',
+        description : '@@theme.universal.shortcut.desc@@',
+        type : 'grid',
+        columns : [{
+            key : 'label',
+            label : '@@theme.universal.label@@'
+        },
+        {
+            key : 'href',
+            label : '@@theme.universal.href@@'
+        },
+        {
+            key : 'target',
+            label : '@@theme.universal.target@@',
+            options : [
+                {value: '', label: ''},
+                {value: '_blank', label: '@@theme.universal.target.newTab@@'},
+            ]
+        },
+        {
+            key : 'isPublic',
+            label : '@@theme.universal.shortcut.public@@',
+            type : 'truefalse'
+        }]
+    },
+    {
+        name : 'userMenu',
+        label : '@@theme.universal.userMenu@@',
+        description : '@@theme.universal.userMenu.desc@@',
+        type : 'grid',
+        columns : [{
+            key : 'label',
+            label : '@@theme.universal.label@@'
+        },
+        {
+            key : 'href',
+            label : '@@theme.universal.href@@'
+        },
+        {
+            key : 'target',
+            label : '@@theme.universal.target@@',
+            options : [
+                {value: '', label: ''},
+                {value: '_blank', label: '@@theme.universal.target.newTab@@'},
+            ]
+        }]
+    },
+    {
+        name : 'enableResponsiveSwitch',
+        label : '@@theme.universal.enableResponsiveSwitch@@',
+        type : 'checkbox',
+        value : 'true',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        name : 'displayCategoryLabel',
+        label : '@@theme.universal.displayCategoryLabel@@',
+        type : 'checkbox',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        name : 'removeAssignmentTitle',
+        label : '@@theme.universal.removeAssignmentTitle@@',
+        type : 'checkbox',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        name : 'homeAttractBanner',
+        label : '@@theme.universal.homeAttractBanner@@',
+        type : 'codeeditor',
+        mode : 'html'
+    },
+    {
+        name : 'css',
+        label : '@@theme.universal.customCss@@',
+        type : 'codeeditor',
+        mode : 'css'
+    },
+    {
+        name : 'js',
+        label : '@@theme.universal.customJavascript@@',
+        type : 'codeeditor',
+        mode : 'javascript'
+    },
+    {
+        name : 'subheader',
+        label : '@@theme.universal.subHeader@@',
+        type : 'codeeditor',
+        mode : 'html'
+    },
+    {
+        name : 'subfooter',
+        label : '@@theme.universal.subFooter@@',
+        type : 'codeeditor',
+        mode : 'html'
+    },
+    {
+        name: 'disableHelpGuide',
+        label: '@@theme.universal.disableHelpGuide@@',
+        type: 'checkbox',
+        value: 'false',
+        options: [{
+            value: 'true',
+            label: ''
+        }]
+    }]
+},
+{
+    title : '@@pwa.settings@@',
+    properties : [
+    {
+        name: 'disablePwa',
+        label: '@@pwa.disablePwa@@',
+        type: 'checkbox',
+        value: 'false',
+        options: [{
+            value: 'true',
+            label: ''
+        }]
+    },
+    {
+        name: 'disablePush',
+        label: '@@push.disablePush@@',
+        type: 'checkbox',
+        value: 'false',
+        options: [{
+            value: 'true',
+            label: ''
+        }]
+    },
+    {
+        name: 'urlsToCache',
+        label: '@@pwa.urlsToCache@@',
+        type:'textarea',
+        description: '@@pwa.urlsToCache.desc@@',
+        cols:'40',
+        rows:'10'
+    }],
+    buttons : [{
+        name : 'testpush',    
+        label : '@@push.sendTestPush@@',
+        ajax_url : '[CONTEXT_PATH]/web/json/push/message',
+        ajax_method : 'POST',
+        addition_fields : [
+        {
+            name : 'username',
+            label : '@@push.username@@',
+            type : 'textfield',
+            required : 'True'
+        },
+        {
+            name : 'title',
+            label : '@@push.title@@',
+            type : 'textfield',
+            required : 'True'
+        },
+        {
+            name : 'text',
+            label : '@@push.text@@',
+            type : 'textfield',
+            required : 'True'
+        },
+        {
+            name : 'url',
+            label : '@@push.url@@',
+            type : 'textfield',
+            required : 'False'
+        },
+        {
+            name : 'icon',
+            label : '@@push.icon@@',
+            type : 'textfield',
+            required : 'False'
+        },
+        {
+            name : 'badge',
+            label : '@@push.badge@@',
+            type : 'textfield',
+            required : 'False'
+        }]
+    }]
+}]

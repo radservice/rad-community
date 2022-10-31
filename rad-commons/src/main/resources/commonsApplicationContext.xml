@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <!-- Set the property implementation the profile property manager uses -->
+    <bean id="profilePropertyManager" class="net.purwana.rads.commons.util.DatasourceProfilePropertyManager">
+    	<property name="propertyClass" value="java.util.Properties"/>
+    </bean>
+    
+    <bean id="dynamicDataSourceManagerCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheName" value="net.purwana.rads.cache.DATASOURCE_CACHE"/>
+    </bean>
+
+    <!-- DynamicDataSourceManager will have its property set via @Autowired -->
+    <bean id="staticInitOfDynamicDataSourceManager" class="net.purwana.rads.commons.util.DynamicDataSourceManager" depends-on="btmConfig">
+    	<constructor-arg ref="profilePropertyManager"/>
+        <property name="cache" ref="dynamicDataSourceManagerCache"/>
+    </bean>
+    
+    <bean id="hostManager" class="net.purwana.rads.commons.util.HostManager" depends-on="staticInitOfDynamicDataSourceManager">
+    </bean>
+
+     <bean id="btmConfig" factory-method="getConfiguration" class="bitronix.tm.TransactionManagerServices"> 
+         <property name="serverId" value="btm-rads" /> 
+         <property name="journal" value="null" /> 
+         <property name="DefaultTransactionTimeout" value="900" /> 
+     </bean> 
+
+     <bean id="bitronixTransactionManager" factory-method="getTransactionManager" 
+         class="bitronix.tm.TransactionManagerServices" depends-on="btmConfig" destroy-method="shutdown" /> 
+
+    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+        <property name="transactionManager" ref="bitronixTransactionManager" />
+        <property name="userTransaction" ref="bitronixTransactionManager" />
+        <property name="allowCustomIsolationLevels" value="true"/>
+    </bean>
+
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="transactionManager"></property>
+    </bean>
+    
+    <bean id="transactionTemplateRequiresNew" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="transactionManager"></property>
+        <property name="propagationBehaviorName" value="PROPAGATION_REQUIRES_NEW"></property>
+    </bean>    
+    
+    <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true" timeout="300" />
+            <tx:method name="load*" read-only="true" timeout="300" />
+            <tx:method name="*" timeout="300" />
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* net.purwana.rads.commons.util.*Dao.*(..))" order="1" />
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* net.purwana.rads.commons.spring.model.*Dao.*(..))" order="1" />
+    </aop:config>
+
+    <bean id="setupDataSource" class="net.purwana.rads.commons.util.DynamicDataSource" destroy-method="close" depends-on="staticInitOfDynamicDataSourceManager">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/radsdb?characterEncoding=UTF-8&amp;useSSL=false" />
+        <property name="username" value="root" />
+        <property name="password" value="" />
+        <property name="testWhileIdle" value="true" />
+        <property name="minEvictableIdleTimeMillis" value="30000" />
+        <property name="timeBetweenEvictionRunsMillis" value="10000" />        
+        <property name="numTestsPerEvictionRun" value="-1" />
+        <property name="minIdle" value="1" />
+        <property name="maxActive" value="500" />
+        <property name="maxWait" value="10000" />
+        <property name="datasourceName" value="workflow" />
+        <property name="jdbcInterceptors" value="org.apache.tomcat.jdbc.pool.interceptor.ConnectionState" />
+    </bean>
+    <!--
+    <bean id="setupDataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName" value="radsdb"/>
+        <property name="lookupOnStartup" value="false"/>
+        <property name="cache" value="true" />
+        <property name="proxyInterface"  value="javax.sql.DataSource" />
+    </bean>
+    -->
+    
+    <!-- Hibernate SessionFactory -->
+    <bean id="setupSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" autowire-candidate="false" depends-on="staticInitOfDynamicDataSourceManager">
+        <property name="dataSource" ref="setupDataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>/net/purwana/rads/commons/spring/model/Setting.hbm.xml</value>
+                <value>/net/purwana/rads/commons/spring/model/ResourceBundleMessage.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.transaction.jta.platform">org.hibernate.service.jta.platform.internal.BitronixJtaPlatform</prop>
+                <prop key="hibernate.connection.release_mode">after_transaction</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="resourceBundleMessageDao" class="net.purwana.rads.commons.spring.model.ResourceBundleMessageDao" depends-on="staticInitOfDynamicDataSourceManager">
+        <property name="sessionFactory" ref="setupSessionFactory"/>
+        <property name="cache">
+            <ref local="resourceBundleMessageCache" />
+        </property>
+    </bean>
+
+    <bean id="resourceBundleUtil" class="net.purwana.rads.commons.util.ResourceBundleUtil">
+    </bean>
+
+    <bean id="setupDao" class="net.purwana.rads.commons.util.SetupDao" depends-on="staticInitOfDynamicDataSourceManager">
+        <property name="sessionFactory" ref="setupSessionFactory"/>
+    </bean>
+
+    <bean id="setupManager" class="net.purwana.rads.commons.util.SetupManager" depends-on="staticInitOfDynamicDataSourceManager">
+        <property name="setupDao" ref="setupDao"/>
+        <property name="cache">
+            <ref local="setupManagerCache" />
+        </property>
+    </bean>
+
+    <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+        <property name="acceptExisting" value="true"/>
+        <property name="configLocation">
+            <value>classpath:ehcache.xml</value>
+        </property>
+   </bean>
+
+    <bean id="resourceBundleMessageCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+
+    <bean id="setupManagerCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="cacheName" value="net.purwana.rads.cache.SETUP_CACHE"/>
+    </bean>
+    
+    <bean id="fileManager" class="net.purwana.rads.commons.util.FileManager" depends-on="setupManager">
+    </bean>
+    
+</beans>

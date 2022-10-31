@@ -1,0 +1,132 @@
+RADS
+Copyright 2022 rads.purwana.net
+
+This product includes software developed by
+The Apache Software Foundation (http://www.apache.org/).
+
+This product includes software developed by the 
+Spring Framework Project (http://www.springframework.org).
+
+RADS Designer is an independent component that is licensed under the GPL http://www.gnu.org/copyleft/gpl.html
+
+All other products or name brands are the trademarks and copyright of 
+their respective holders.
+
+The following are respective licenses of libraries used:
+
+Apache Software Foundation Libraries:
+http://www.apache.org/licenses/LICENSE-2.0.html
+
+Antlr:
+http://www.antlr2.org/license.html
+
+ACE 1.4.5:
+https://github.com/ajaxorg/ace/blob/master/LICENSE
+
+ASM:
+http://asm.ow2.org/license.html
+
+Carol:
+http://carol.ow2.org/license.html
+
+Castor:
+http://castor.codehaus.org/license.html
+
+CGLib:
+http://cglib.sourceforge.net/license.html
+
+Display Tag:
+http://www.displaytag.org/10/license.html
+
+Howl:
+http://howl.ow2.org/license.html
+
+ical4j 3.0.7
+https://github.com/ical4j/ical4j/blob/ical4j-3.0.7/LICENSE
+
+Groovy:
+http://groovy.codehaus.org/License+Informatiok-
+
+Guava
+http://www.apache.org/licenses/LICENSE-2.0.html
+
+Jaxen:
+http://jaxen.codehaus.org/license.html
+
+JCL implementation over SLF4J:
+http://www.slf4j.org/license.html
+
+JCommon:
+http://www.gnu.org/licenses/lgpl.html
+
+JDOM:
+http://www.jdom.org/docs/faq.html+ACM-a0030
+
+JFree:
+http://www.gnu.org/licenses/lgpl.html
+
+JGit
+https://www.eclipse.org/org/documents/edl-v10.php
+
+OpenPDF
+https://github.com/LibrePDF/OpenPDF/blob/master/License.md
+
+Rhino:
+https://developer.mozilla.org/en-US/docs/Rhino/License
+
+SLF4J:
+http://www.slf4j.org/license.html
+
+Spring Framework Libraries:
+http://www.apache.org/licenses/LICENSE-2.0.html
+
+Stax:
+http://stax.codehaus.org/
+
+Tensorflow
+http://www.apache.org/licenses/LICENSE-2.0.html
+
+True License:
+http://www.apache.org/licenses/LICENSE-2.0.html
+
+XOM:
+http://www.xom.nu/license.xhtml
+
+Enhydra Shark 2.0.1:
+http://www.gnu.org/licenses/lgpl.html
+
+Hibernate:
+http://www.hibernate.org/license
+
+FreeMarker:
+http://freemarker.sourceforge.net/docs/app+AF8-license.html
+
+JavaBeans Activation Framework (JAF), JavaMail API:
+http://opensource.org/licenses/CDDL-1.0
+
+Java Transaction API (JTA):
+http://download.oracle.com/otndocs/jcp/7286-jta-1.0.1-spec-oth-JSpec/7286-jta-1.0.1-spec-oth-JSpec-license.html
+
+json-patch
+https://github.com/java-json-tools/json-patch
+
+JTransforms
+http://opensource.org/licenses/BSD-2-Clause
+
+Oracle JDBC Driver:
+http://www.oracle.com/technetwork/licenses/distribution-license-152002.html
+
+Microsoft SQL JDBC Driver:
+https://github.com/microsoft/mssql-jdbc/blob/dev/LICENSE
+
+WebSocket Server API
+https://oss.oracle.com/licenses/CDDL+GPI-1.1
+
+X-Admin Template
+https://gitee.com/daniuit/X-admin
+
+Lay UI
+https://github.com/sentsin/layui/blob/master/LICENSE
+
+Quill 
+https://github.com/quilljs/quill/blob/develop/LICENSE

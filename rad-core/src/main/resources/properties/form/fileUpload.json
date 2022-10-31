@@ -1,0 +1,170 @@
+[{
+    title : '@@form.fileupload.editFileUpload@@',
+    properties : [{
+        name : 'id',
+        label : '@@form.fileupload.id@@',
+        type : 'autocomplete',
+        required : 'True',
+        regex_validation : '^[a-zA-Z0-9_]+$',
+        validation_message : '@@form.fileupload.invalidId@@',
+        options_callback : 'FormBuilder.getAllFieldOptions'
+    },
+    {
+        name : 'label',
+        label : '@@form.fileupload.label@@',
+        type : 'textfield',
+        required : 'True',
+        value : '@@net.purwana.rads.apps.form.lib.FileUpload.pluginLabel@@'
+    }]
+},
+{
+    title : '@@form.fileupload.advancedOptions@@',
+    properties : [{
+        label : '@@form.fileupload.data@@',
+        type : 'header'
+    },
+    {
+        name : 'validator',
+        label : '@@form.fileupload.validator@@',
+        type : 'elementselect',
+        options_ajax : '[CONTEXT_PATH]/web/property/json/getElements?classname=net.purwana.rads.apps.form.model.FormValidator',
+        url : '[CONTEXT_PATH]/web/property/json[APP_PATH]/getPropertyOptions'
+    },
+    {
+        name : 'maxSize',
+        label : '@@form.fileupload.maxSize@@',
+        type : 'textfield',
+        regex_validation : '^[0-9]+$',
+        validation_message : '@@form.fileupload.invalidSize@@'
+    },
+    {
+        name : 'maxSizeMsg',
+        label : '@@form.fileupload.maxSize.msg@@',
+        type : 'textfield',
+        value : '@@form.fileupload.maxSize.msg.fileTooBig@@'
+    },
+    {
+        name : 'fileType',
+        label : '@@form.fileupload.fileType@@',
+        type : 'textfield'
+    },
+    {
+        name : 'fileTypeMsg',
+        label : '@@form.fileupload.fileType.msg@@',
+        type : 'textfield',
+        value : '@@form.fileupload.fileType.msg.invalidFileType@@'
+    },
+    {
+        name : 'removeFile',
+        label : '@@form.fileupload.removeFile@@',
+        type : 'checkbox',
+        value : 'false',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        label : '@@form.fileupload.resize@@',
+        type : 'header'
+    },
+    {
+        name : 'resizeWidth',
+        label : '@@form.fileupload.resizeWidth@@',
+        type : 'textfield'
+    },
+    {
+        name : 'resizeHeight',
+        label : '@@form.fileupload.resizeHeight@@',
+        type : 'textfield'
+    },
+    {
+        name : 'resizeQuality',
+        label : '@@form.fileupload.resizeQuality@@',
+        type : 'textfield',
+        value : '0.8'
+    },
+    {
+        name:'resizeMethod',
+        label:'@@form.fileupload.resizeMethod@@',
+        type:'selectbox',
+        value : '',
+        options : [{
+            value : '', label : '@@form.fileupload.contain@@'
+        },{
+            value : 'crop', label : '@@form.fileupload.crop@@'
+        }]
+    },
+    {
+        label : '@@form.section.permission@@',
+        type : 'header'
+    },
+    {
+        name:'permissionType',
+        label:'@@form.section.permission@@',
+        type:'selectbox',
+        value : '',
+        options : [{
+            value : '', label : '@@form.fileupload.permission.loggedInUsers@@'
+        },{
+            value : 'public', label : '@@form.fileupload.permission.public@@'
+        },{
+            value : 'custom', label : '@@form.fileupload.permission.custom@@'
+        }]
+    },
+    {
+        name:'permissionPlugin',
+        label:'@@form.fileupload.customPermission@@',
+        type:'elementselect',
+        control_field: 'permissionType',
+        control_value: 'custom',
+        control_use_regex: 'false',
+        required : 'true',
+        options_ajax:'[CONTEXT_PATH]/web/property/json/getElements?classname=net.purwana.rads.apps.form.model.FormPermission',
+        url:'[CONTEXT_PATH]/web/property/json[APP_PATH]/getPropertyOptions'
+    },
+    {
+        label : '@@form.fileupload.ui@@',
+        type : 'header'
+    },
+    {
+        name : 'size',
+        label : '@@form.fileupload.size@@',
+        type : 'textfield'
+    },
+    {
+        name : 'multiple',
+        label : '@@form.fileupload.multiple@@',
+        type : 'checkbox',
+        value : 'False',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        name : 'readonly',
+        label : '@@form.fileupload.readonly@@',
+        type : 'checkbox',
+        value : 'False',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        name : 'padding',
+        label : '@@form.fileupload.dropzonePadding@@',
+        type : 'textfield'
+    },
+    {
+        name : 'attachment',
+        label : '@@form.fileupload.download@@',
+        type : 'checkbox',
+        value : 'False',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    }]
+}]

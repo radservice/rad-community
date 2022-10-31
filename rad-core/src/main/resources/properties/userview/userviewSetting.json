@@ -1,0 +1,56 @@
+[{
+    title : '@@userview.userviewsetting.configLayout@@',
+    helplink : '@@userview.userviewsetting.helplink@@',
+    properties : [{
+        name: 'theme',
+        label: '@@userview.userviewsetting.theme@@',
+        control_field: 'userviewType',
+        control_value: '',
+        value: 'net.purwana.rads.apps.userview.lib.DefaultTheme',
+        type: 'elementselect',
+        options_ajax: '[CONTEXT_PATH]/web/property/json/getElements?classname=net.purwana.rads.apps.userview.model.UserviewTheme',
+        url: '[CONTEXT_PATH]/web/property/userview/json[APP_PATH]/getPropertyOptions'
+    }, 
+    {
+        name: 'userviewDescription',
+        label: '@@ubuilder.description@@',
+        required: 'false',
+        type: 'textarea'
+    }, 
+    {
+        name: 'userview_thumbnail',
+        label: '@@ubuilder.thumbnail@@',
+        type: 'image',
+        appPath: '[APP_PATH]',
+        allowInput : 'true',
+        isPublic : 'true',
+        imageSize : 'width:100px;height:100px;'
+    }]
+}, {
+    title: '@@userview.userviewsetting.configPermission@@',
+    properties: [{
+        name: 'hideThisUserviewInAppCenter',
+        label: '@@userview.userviewsetting.hideAppCenter@@',
+        type: 'checkbox',
+        value: 'false',
+        options: [{
+            value: 'true',
+            label: ''
+        }]
+    }, {
+        name: 'permission',
+        label: '@@userview.userviewsetting.permission@@',
+        type: 'elementselect',
+        options_ajax: '[CONTEXT_PATH]/web/property/json/getElements?classname=net.purwana.rads.apps.userview.model.UserviewAccessPermission',
+        url: '[CONTEXT_PATH]/web/property/json[APP_PATH]/getPropertyOptions'
+    },{
+        name: 'tempDisablePermissionChecking',
+        label: '@@userview.userviewsetting.tempDisablePermissionChecking@@',
+        type: 'checkbox',
+        value: 'false',
+        options: [{
+            value: 'true',
+            label: ''
+        }]
+    }]
+}]

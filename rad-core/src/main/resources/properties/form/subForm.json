@@ -1,0 +1,110 @@
+[
+    {
+        title:'@@form.subform.editSubform@@',
+        properties:[
+            {
+                name:'id',
+                label:'@@form.subform.id@@',
+                type:'textfield',
+                required:'True',
+                regex_validation : '^[a-zA-Z0-9_]+$',
+                validation_message : '@@form.subform.invalidId@@'
+            },
+            {
+                name:'label',
+                label:'@@form.subform.label@@',
+                type:'textfield'
+            },
+            %s
+        ]
+    },
+    {
+        title:'@@form.subform.ui@@',
+        properties:[
+            {
+                label : '@@form.subform.general@@',
+                type : 'header'
+            },
+            {
+                name:'readonly',
+                label:'@@form.subform.readonly@@',
+                type:'checkbox',
+                value:'False',
+                options:[
+                    {
+                        value:'true',
+                        label:''
+                    }
+                ]
+            },
+            {
+                name:'readonlyLabel',
+                label:'@@form.subform.readonlyLabel@@',
+                type:'checkbox',
+                value:'False',
+                options:[
+                    {
+                        value:'true',
+                        label:''
+                    }
+                ]
+            },
+            {
+                name:'noframe',
+                label:'@@form.subform.noframe@@',
+                type:'checkbox',
+                value:'false',
+                options:[
+                    {
+                        value:'true',
+                        label:''
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        title:'@@form.subform.data@@',
+        properties:[
+            {
+                label : '@@form.subform.dataLinkage@@',
+                type : 'header'
+            },
+            {
+                name:'parentSubFormId',
+                label:'@@form.subform.parentField@@',
+                type : 'autocomplete',
+                options_callback : 'FormBuilder.getFieldOptions'
+            },
+            {
+                name:'subFormParentId',
+                label:'@@form.subform.subformField@@',
+                type : 'autocomplete',
+                options_ajax_on_change : 'formDefId',
+                options_ajax : '[CONTEXT_PATH]/web/json/console/app[APP_PATH]/form/columns/options'
+            },
+            {
+                label : '@@form.subform.binder@@',
+                type : 'header'
+            },
+            {
+                name:'loadBinder',
+                label:'@@form.subform.loadBinder@@',
+                type:'elementselect',
+                options_ajax:'[CONTEXT_PATH]/web/property/json/getElements?classname=net.purwana.rads.apps.form.model.FormLoadElementBinder',
+                url:'[CONTEXT_PATH]/web/property/json[APP_PATH]/getPropertyOptions',
+                value:'net.purwana.rads.apps.form.lib.WorkflowFormBinder',
+                required:'True'
+            },
+            {
+                name:'storeBinder',
+                label:'@@form.subform.storeBinder@@',
+                type:'elementselect',
+                options_ajax:'[CONTEXT_PATH]/web/property/json/getElements?classname=net.purwana.rads.apps.form.model.FormStoreElementBinder',
+                url:'[CONTEXT_PATH]/web/property/json[APP_PATH]/getPropertyOptions',
+                value:'net.purwana.rads.apps.form.lib.WorkflowFormBinder',
+                required: 'True'
+            }
+        ]
+    }
+]

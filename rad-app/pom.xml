@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.purwana.rads</groupId>
+    <artifactId>rad-app</artifactId>
+    <version>7.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>rad-app</name>
+    <url>https://rads.purwana.net</url>
+    <scm>
+        <connection>scm:git:ssh://git@gitlab.com/ekcaputrajaya/rad-community.git</connection>
+        <developerConnection>scm:git:ssh://git@gitlab.com/ekcaputrajaya/rad-community.git</developerConnection>
+        <url>ssh://git@gitlab.com/ekcaputrajaya/rad-community.git</url>
+        <tag>HEAD</tag>
+    </scm>
+    <modules>
+        <module>../rad-jdbc</module>
+        <module>../rad-plugin-base</module>
+        <module>../rad-plugin-archetype</module>
+        <module>../rad-directory</module>
+		<module>../rad-commons</module>
+        <module>../rad-wfengine</module>
+        <module>../rad-core</module>
+        <module>../rad-consoleweb</module>
+		
+    </modules>
+</project>
+

@@ -1,0 +1,250 @@
+{
+    "className": "org.joget.apps.userview.model.Userview",
+    "properties": {
+        "id": "purchaseRequisitionPortal",
+        "name": "#i18n.app.welcome# to Purchase Requisition Portal",
+        "description": "",
+        "welcomeMessage": "#date.EEE, d MMM yyyy#",
+        "logoutText": "Logout",
+        "footerMessage": "Powered by Joget"
+    },
+    "setting": {
+        "properties": {
+            "userviewDescription": "",
+            "theme": {
+                "className": "org.joget.plugin.enterprise.ProgressiveTheme",
+                "properties": {
+                    "horizontal_menu": "",
+                    "themeScheme": "light",
+                    "primaryColor": "DARKROYALBLUE",
+                    "accentColor": "BLUE",
+                    "buttonColor": "GREY",
+                    "buttonTextColor": "WHITE",
+                    "menuFontColor": "BLACK",
+                    "fontColor": "WHITE",
+                    "fav_icon": "",
+                    "logo": "",
+                    "profile": "",
+                    "userImage": "",
+                    "inbox": "current",
+                    "homeUrl": "",
+                    "shortcutLinkLabel": "Shortcut",
+                    "shortcut": [],
+                    "userMenu": [],
+                    "enableResponsiveSwitch": "true",
+                    "removeAssignmentTitle": "",
+                    "homeAttractBanner": "",
+                    "css": "",
+                    "js": "",
+                    "subheader": "",
+                    "subfooter": "",
+                    "disableHelpGuide": "",
+                    "disablePwa": "",
+                    "disablePush": "",
+                    "urlsToCache": "",
+                    "loginPageTop": "",
+                    "loginPageBottom": ""
+                }
+            },
+            "permission": {
+                "className": "",
+                "properties": {}
+            },
+            "userview_thumbnail": "",
+            "hideThisUserviewInAppCenter": "",
+            "__": ""
+        }
+    },
+    "categories": [
+        {
+            "className": "org.joget.apps.userview.model.UserviewCategory",
+            "properties": {
+                "id": "category-EE74E4F4426241BD9BC3BC73B1D24AC7",
+                "label": "<i class='fa fa-home'></i> Home"
+            },
+            "menus": [
+                {
+                    "className": "org.joget.apps.userview.lib.HtmlPage",
+                    "properties": {
+                        "id": "3B6F25A638EF40FFAD3C5DAAC41BA98F",
+                        "customId": "welcome",
+                        "label": "Welcome",
+                        "content": "<div class=\"ui-welcome\"><h1>Apps and Workflow Made Simple</h1><p>&nbsp;</p><div class=\"icon\" style=\"margin-right: 20px; margin-bottom: 20px; float: left; clear: left\"><img src=\"/jw/images/icon_idea.png\" width=\"120\" height=\"85\"/></div><div class=\"message\"><h3>Build apps, not just processes!</h3><p>Create full-fledged apps with support for data records management.</p></div><p>&nbsp;</p><div class=\"icon\" style=\"margin-right: 20px; margin-bottom: 20px; float: left; clear: left\"><img src=\"/jw/images/icon_rocket.png\" width=\"120\" height=\"85\"/></div><div class=\"message\"><h3>Increased Efficiency and Productivity</h3><p>Faster and more consistent completion of manual processes, and with minimal errors.</p></div><p>&nbsp;</p><div class=\"icon\" style=\"margin-right: 20px; margin-bottom: 20px; float: left; clear: left\"><img src=\"/jw/images/icon_cost.png\" width=\"120\" height=\"85\"/></div><div class=\"message\"><h3>Lowered Cost</h3><p>Employees can be guided through complex procedures, hence reducing the cost of training.</p></div></div>"
+                    }
+                }
+            ]
+        },
+        {
+            "className": "org.joget.apps.userview.model.UserviewCategory",
+            "properties": {
+                "id": "category-5D3B987B38194B5789696974B6A8422F",
+                "label": "Purchase Requisition"
+            },
+            "menus": [
+                {
+                    "className": "org.joget.apps.userview.lib.RunProcess",
+                    "properties": {
+                        "id": "3DC9933BB40840819FD67DBE29C41009",
+                        "customId": "submit",
+                        "label": "Submit New Request",
+                        "processDefId": "purchaseRequestProcess",
+                        "runProcessDirectly": "Yes",
+                        "showInPopupDialog": "",
+                        "runProcessSubmitLabel": "",
+                        "messageShowAfterComplete": "",
+                        "redirectUrlAfterComplete": "",
+                        "fieldPassover": "",
+                        "fieldPassoverMethod": "append",
+                        "paramName": "",
+                        "keyName": "",
+                        "userviewCacheScope": "",
+                        "userviewCacheDuration": "20"
+                    }
+                },
+                {
+                    "className": "org.joget.apps.userview.lib.InboxMenu",
+                    "properties": {
+                        "id": "239E1303366E4A79BF45D0C45106490D",
+                        "customId": "",
+                        "label": "Inbox",
+                        "appFilter": "all",
+                        "processId": "",
+                        "rowCount": "",
+                        "buttonPosition": "bottomLeft",
+                        "list-customHeader": "",
+                        "list-customFooter": "",
+                        "assignment-customHeader": "",
+                        "assignment-customFooter": "",
+                        "userviewCacheScope": "",
+                        "userviewCacheDuration": "20"
+                    }
+                },
+                {
+                    "className": "org.joget.apps.userview.lib.DataListMenu",
+                    "properties": {
+                        "id": "F2BFD348887F4BA58EE8D84F22496A4F",
+                        "customId": "",
+                        "label": "List All",
+                        "datalistId": "requestList",
+                        "rowCount": "",
+                        "buttonPosition": "bottomLeft",
+                        "selectionType": "multiple",
+                        "checkboxPosition": "left",
+                        "customHeader": "",
+                        "customFooter": "",
+                        "keyName": "",
+                        "userviewCacheScope": "",
+                        "userviewCacheDuration": "20"
+                    }
+                },
+                {
+                    "className": "org.joget.plugin.enterprise.CrudMenu",
+                    "properties": {
+                        "id": "BB2FA6F7EDB549048667408BECE06F0D",
+                        "customId": "",
+                        "label": "CRUD",
+                        "datalistId": "requestList",
+                        "addFormId": "submitRequest",
+                        "editFormId": "submitRequest",
+                        "rowCount": "",
+                        "buttonPosition": "bottomLeft",
+                        "selectionType": "multiple",
+                        "checkboxPosition": "left",
+                        "list-editLinkLabel": "",
+                        "list-newButtonLabel": "",
+                        "list-deleteButtonLabel": "",
+                        "list-showDeleteButton": "",
+                        "list-customHeader": "",
+                        "list-customFooter": "",
+                        "list-moreActions": [],
+                        "add-cancelButtonLabel": "",
+                        "add-saveButtonLabel": "",
+                        "add-customHeader": "",
+                        "add-customFooter": "",
+                        "add-messageShowAfterComplete": "",
+                        "add-afterSaved": "list",
+                        "add-afterSavedRedirectUrl": "",
+                        "add-afterSavedRedirectParamName": "",
+                        "add-afterSavedRedirectParamvalue": "",
+                        "edit-readonly": "",
+                        "edit-readonlyLabel": "",
+                        "edit-backButtonLabel": "",
+                        "edit-saveButtonLabel": "",
+                        "edit-allowRecordTraveling": "",
+                        "edit-firstButtonLabel": "",
+                        "edit-prevButtonLabel": "",
+                        "edit-nextButtonLabel": "",
+                        "edit-lastButtonLabel": "",
+                        "edit-customHeader": "",
+                        "edit-customFooter": "",
+                        "edit-messageShowAfterComplete": "",
+                        "edit-afterSaved": "list",
+                        "edit-afterSavedRedirectUrl": "",
+                        "edit-afterSavedRedirectParamName": "",
+                        "edit-afterSavedRedirectParamvalue": "",
+                        "edit-moreActions": [],
+                        "keyName": "",
+                        "userviewCacheScope": "",
+                        "userviewCacheDuration": "20"
+                    }
+                },
+                {
+                    "className": "org.joget.plugin.enterprise.SqlChartMenu",
+                    "properties": {
+                        "xAxisDisplayAS": "",
+                        "valueAxisLabel": "Category of Requests",
+                        "showLegend": "true",
+                        "label": "Request Approval Chart",
+                        "title": "Request Approval Chart",
+                        "chartHeight": "50%",
+                        "categoryAxisLabel": "Status",
+                        "chartWidth": "60%",
+                        "userviewCacheDuration": "20",
+                        "userviewCacheScope": "",
+                        "datasource": "binder",
+                        "chartType": "bar",
+                        "showValueLabel": "true",
+                        "id": "16FA92666BD14ACE89A31D90E57E3C1E",
+                        "customId": "",
+                        "binder": {
+                            "className": "org.joget.plugin.enterprise.AdvancedFormRowDataListBinder",
+                            "properties": {
+                                "formDefId": "approveRequest",
+                                "joins": [],
+                                "filters": [],
+                                "extraCondition": "",
+                                "groupBy": "approval",
+                                "aggregateField": [
+                                    {
+                                        "field": "approval",
+                                        "function": "AFD_COUNT_"
+                                    }
+                                ],
+                                "having": [],
+                                "functionColumns": [],
+                                "customSelectionValue": ""
+                            }
+                        },
+                        "sortingOrderByColumn": "",
+                        "sortingOrder": "ASC",
+                        "mapping_x": "approval",
+                        "mapping_ys": [
+                            {
+                                "y": "AFD_COUNT_approval",
+                                "legend": "Requests"
+                            }
+                        ],
+                        "yaxisPrefix": "",
+                        "stack": "",
+                        "horizontal": "",
+                        "colors": "",
+                        "keyName": "",
+                        "customHeader": "",
+                        "customFooter": "",
+                        "enableOffline": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

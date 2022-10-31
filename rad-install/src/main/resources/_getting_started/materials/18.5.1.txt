@@ -1,0 +1,17 @@
+<script type="text/javascript" src="http://localhost:8080/jw/js/jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="http://localhost:8080/jw/js/json/util.js" ></script>
+
+<script type="text/javascript" >
+$(document).ready(function(){
+    var loginCallback = {
+        success : function(response){
+            if(response.username != "roleAnonymous"){
+                alert("login successfully");
+            }else{
+                alert("login fail");
+            }
+        }
+    };
+    AssignmentManager.login('http://localhost:8080/jw', 'admin', 'admin', loginCallback);
+});
+</script>

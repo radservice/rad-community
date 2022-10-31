@@ -1,0 +1,162 @@
+[{
+    title : '@@userview.runprocess.editRunProcess@@',
+    properties : [{
+        name : 'id',
+        label : 'Id',
+        type : 'hidden'
+    },
+    {
+        name : 'customId',
+        label : '@@userview.runprocess.customId@@',
+        type : 'textfield',
+        regex_validation : '^[a-zA-Z0-9_]+$',
+        validation_message : '@@userview.runprocess.invalidId@@'
+    },
+    {
+        name : 'label',
+        label : '@@userview.runprocess.label@@',
+        type : 'textfield',
+        required : 'True',
+        value : '@@userview.runprocess.runProcess@@'
+    },
+    {
+        name : 'processDefId',
+        label : '@@userview.runprocess.process@@',
+        type : 'selectbox',
+        required : 'True',
+        options_ajax : '[CONTEXT_PATH]/web/json/app/%s/%s/plugin/net.purwana.rads.apps.userview.lib.RunProcess/service?action=getOptions'
+    },
+    {
+        name : 'runProcessDirectly',
+        label : '@@userview.runprocess.runProcessDirectly@@',
+        type : 'checkbox',
+        value : 'Yes',
+        options : [{
+            value : 'Yes',
+            label : ''
+        }]
+    },
+    {
+        name : 'showInPopupDialog',
+        label : '@@userview.runprocess.showInPopup@@',
+        type : 'checkbox',
+        value : 'No',
+        options : [{
+            value : 'Yes',
+            label : ''
+        }]
+    },
+    {
+        name : 'runProcessSubmitLabel',
+        label : '@@userview.formmenu.submitButtonLabel@@',
+        type : 'textfield'
+    }]
+},
+{
+    title : '@@userview.formmenu.redirection@@',
+    properties : [{
+        name : 'messageShowAfterComplete',
+        label : '@@userview.runprocess.messageAfterStarted@@',
+        type : 'textarea'
+    },
+    {
+        name : 'actionAfterSaved',
+        label : '@@userview.formmenu.actionAfterSaved@@',
+        type : 'selectbox',
+        options : [{
+            value : '',
+            label : '@@userview.formmenu.redirection@@'
+        },
+        {
+            value : 'reload',
+            label : '@@userview.formmenu.reload@@'
+        }]
+    },
+    {
+        name : 'redirectUrlAfterComplete',
+        label : '@@userview.runprocess.redirectAfterStarted@@',
+        type : 'textfield',
+        control_field: 'actionAfterSaved',
+        control_value: '',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'redirectTarget',
+        label : '@@userview.formmenu.redirectTargetOnComplete@@',
+        type : 'selectbox',
+        value : '',
+        options : [{
+            value : 'top',
+            label : '@@userview.formmenu.target.top@@'
+        },
+        {
+            value : 'parent',
+            label : '@@userview.formmenu.target.parent@@'
+        },
+        {
+            value : '',
+            label : '@@userview.formmenu.target.window@@'
+        }],
+        control_field: 'actionAfterSaved',
+        control_value: '',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'fieldPassover',
+        label : '@@userview.formmenu.fieldNamePassover@@',
+        type : 'textfield',
+        control_field: 'actionAfterSaved',
+        control_value: '',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'fieldPassoverMethod',
+        label : '@@userview.formmenu.fieldPassoverMethod@@',
+        type : 'selectbox',
+        value : 'append',
+        options : [{
+            value : 'append',
+            label : '@@userview.formmenu.append@@'
+        },
+        {
+            value : 'param',
+            label : '@@userview.formmenu.asParam@@'
+        }],
+        control_field: 'actionAfterSaved',
+        control_value: '',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'paramName',
+        label : '@@userview.formmenu.paramName@@',
+        type : 'textfield',
+        control_field: 'fieldPassoverMethod',
+        control_value: 'param',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'afterSavedReloadTarget',
+        label : '@@userview.formmenu.aftersaved.reload.target@@',
+        type : 'selectbox',
+        options : [
+        {
+            value : 'true',
+            label : '@@datalist.hyperlinkdatalistaction.parent@@'
+        },
+        {
+            value : 'top',
+            label : '@@datalist.hyperlinkdatalistaction.top@@'
+        }],
+        control_field: 'actionAfterSaved',
+        control_value: 'reload',
+        control_use_regex: 'false'
+    }]
+},
+{
+    title : '@@userview.runprocess.advanced@@',
+    properties : [{
+        name : 'keyName',
+        label : '@@userview.runprocess.userviewKeyName@@',
+        type : 'textfield'
+    }]
+}]

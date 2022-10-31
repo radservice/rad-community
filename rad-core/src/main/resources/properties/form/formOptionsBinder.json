@@ -1,0 +1,49 @@
+[{
+    title : '@@form.defaultformoptionbinder.selectForm@@',
+    properties : [
+    %s,
+    {
+        name : 'idColumn',
+        label : '@@form.defaultformoptionbinder.idColumn@@',
+        type : 'selectbox',
+        options_ajax_on_change : 'formDefId',
+        options_ajax : '[CONTEXT_PATH]/web/json/console/app[APP_PATH]/form/columns/options'
+    },
+    {
+        name : 'labelColumn',
+        label : '@@form.defaultformoptionbinder.labelColumn@@',
+        type : 'selectbox',
+        options_ajax_on_change : 'formDefId',
+        options_ajax : '[CONTEXT_PATH]/web/json/console/app[APP_PATH]/form/columns/options',
+        required : 'True'
+    },
+    {
+        name : 'groupingColumn',
+        label : '@@form.defaultformoptionbinder.groupingColumn@@',
+        type : 'selectbox',
+        options_ajax_on_change : 'formDefId',
+        options_ajax : '[CONTEXT_PATH]/web/json/console/app[APP_PATH]/form/columns/options'
+    },
+    {
+        name : 'extraCondition',
+        label : '@@form.defaultformoptionbinder.extraFilter@@',
+        type : 'textarea',
+        rows : '5',
+        cols : '50'
+    },
+    {
+        name : 'addEmptyOption',
+        label : '@@form.defaultformoptionbinder.addEmptyOption@@',
+        type : 'checkbox',
+        value : 'false',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        name : 'emptyLabel',
+        label : '@@form.defaultformoptionbinder.emptyLabel@@',
+        type : 'textfield'
+    }%s]
+}]

@@ -1,0 +1,108 @@
+{
+    "className":"net.purwana.rads.apps.form.model.Form",
+    "properties":{
+        "id":"testFormD",
+        "loadBinder":{
+            "className":"net.purwana.rads.apps.form.lib.WorkflowFormBinder"
+        },
+        "tableName":"testFormD",
+        "name":"Form D",
+        "storeBinder":{
+            "className":"net.purwana.rads.apps.form.lib.WorkflowFormBinder"
+        }
+    },
+    "elements":[{
+        "elements":[{
+            "elements":[{
+                "className":"net.purwana.rads.apps.form.lib.TextField",
+                "properties":{
+                    "id":"id",
+                    "workflowVariable":"",
+                    "validator":{
+                        "className":"",
+                        "properties":{}
+                    },
+                    "label":"did",
+                    "readonly":"",
+                    "size":""
+                }
+            },{
+                "className":"net.purwana.rads.apps.form.lib.TextField",
+                "properties":{
+                    "id":"cid",
+                    "workflowVariable":"",
+                    "validator":{
+                        "className":"",
+                        "properties":{}
+                    },
+                    "label":"cid",
+                    "readonly":"true",
+                    "size":""
+                }
+            },{
+                "className":"net.purwana.rads.apps.form.lib.TextField",
+                "properties":{
+                    "id":"d1",
+                    "workflowVariable":"",
+                    "validator":{
+                        "className":"",
+                        "properties":{}
+                    },
+                    "label":"Field d1",
+                    "readonly":"",
+                    "size":""
+                }
+            },{
+                "className":"net.purwana.rads.apps.form.lib.TextArea",
+                "properties":{
+                    "id":"d2",
+                    "cols":"20",
+                    "validator":{
+                        "className":"",
+                        "properties":{}
+                    },
+                    "label":"Field d2",
+                    "readonly":"",
+                    "rows":"5"
+                }
+            },{
+                "className":"net.purwana.rads.apps.form.lib.SubForm",
+                "properties":{
+                    "id":"formC",
+                    "parentSubFormId":"cid",
+                    "label":"",
+                    "formDefId":"testFormC",
+                    "json":"",
+                    "readonly":"",
+                    "loadBinder": {
+                        "className": "net.purwana.rads.apps.form.lib.WorkflowFormBinder",
+                        "properties": {}
+                    },
+                    "storeBinder": {
+                        "className": "net.purwana.rads.apps.form.lib.WorkflowFormBinder",
+                        "properties": {}
+                    },
+                }
+            }],
+            "className":"net.purwana.rads.apps.form.model.Column",
+            "properties":{
+                "width":"99%"
+            }
+        }],
+        "className":"net.purwana.rads.apps.form.model.Section",
+        "properties":{
+            "id":"FormDsection",
+            "loadBinder":{
+                "className":"",
+                "properties":{}
+            },
+            "visibilityControl":"",
+            "visibilityValue":"",
+            "storeBinder":{
+                "className":"",
+                "properties":{}
+            },
+            "label":"Form D"
+        }
+    }]
+}

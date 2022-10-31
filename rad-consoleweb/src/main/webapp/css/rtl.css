@@ -1,0 +1,277 @@
+body{
+    direction:rtl;
+}
+
+body.rtl #main {
+    margin-left: 0px;
+    margin-right: 200px;
+}
+
+/* header */
+body.rtl #logo{
+    float: right;
+    margin-left: 0px;
+    margin-right: 4px;
+}
+body.rtl #logo-title{
+    float: right;
+}
+body.rtl #header-links{
+    right: auto;
+    left: 55px;
+    float: left;
+    clear: left;
+}
+
+/* footer */
+body.rtl:not(#login) #footer {
+    margin-right: 200px;
+    margin-left: 0px;
+}
+
+/* menu */
+body.rtl #nav{
+    border-right: 0;
+    border-left: 1px solid #E9E9E9;
+    box-shadow: -1px 1px 1px rgba(0, 0, 0, .3);
+}
+body.rtl #nav-list {
+    margin-right: 0px;
+    margin-left: -1px;
+}
+body.rtl #nav-list li a{
+    padding: 10px 40px 10px 15px;
+}
+body.rtl #nav-list .nav-steps{
+    right: 15px;
+    left: auto;
+}
+body.rtl div#adminWelcome{
+    right: auto;
+    left: 10px;
+}
+
+/*form */
+body.rtl .form-row label{
+    float: right;
+    clear: right;
+    margin-left: 15px;
+    margin-right: 0;
+}
+body.rtl .form-row .form-input{
+    margin-left: 0px;
+    margin-right: 195px;
+}
+body.rtl select:not([class^="ui-"]){
+    padding-right: 2px;
+    padding-left: 25px;
+    background-position: 0% 50%;
+}
+
+/* popup */
+body.rtl .ui-dialog-titlebar{
+    right: auto;
+    left: 40px;
+}
+body.rtl .boxy-wrapper .title-bar a.close,
+body.rtl .ui-dialog-titlebar-close{
+    right: auto !important;
+    left: 10px !important;
+}
+body.rtl.popupBody #main-body-header #main-action-help{
+    right: auto;
+    left: 30px;
+}
+body .boxy-wrapper .title-bar {
+    right: auto;
+    left: 15px;
+}
+
+/* button */
+body.rtl button:before, body.rtl input[type='button']:before, body.rtl input[type='submit']:before, body.rtl .smallbutton:before, body.rtl .btn:before{
+    transform-origin: 100% 50%;
+}
+
+/* table */
+body.rtl .flexigrid{
+    text-align:right;
+    direction:ltr;
+}
+
+/* plugin */
+.property-editor-container input + input,
+.property-editor-container .button_form + input {
+    margin-left: 0px;
+    margin-right: 5px;
+}
+
+/* other */
+body.rtl .row-content dl dt{
+    margin-right: 0px;
+    margin-left: 15px;
+    float: right;
+    clear: right;
+}
+body.rtl .row-content dl dd {
+    margin-left: 0px;
+    margin-right: 195px;
+}
+#ui-datepicker-div {
+    display:none;
+}
+body.rtl #installApp {
+    right: auto;
+    left: 25px;
+}
+
+/* webconsole home */
+body#webconsole.rtl #footer {
+    margin-right: 0px;
+}
+
+/* design app */
+body.rtl .nv-border{
+    margin-right: 0;
+    margin-left: 1%;
+}
+body.rtl .nv-border:after{
+    right: auto;
+    left: 0;
+}
+body.rtl .filterform .filterlabel{
+    right: 2px;
+    left: auto;
+}
+body.rtl .filterform .filterinput{
+    padding-left: 2px;
+    padding-right: 25px;    
+}
+body.rtl .nv-link-name{
+    padding-left: 0;
+    padding-right: 20px;
+}
+body.rtl .nv-link-name i{
+    left: auto;
+    right: 0;
+}
+body.rtl .nv-version, body.rtl .nv-form-table{
+    text-align: left;
+}
+body.rtl #nav-apps-link .fa-arrow-circle-left:before{
+    content: "\f0a9";
+}
+body.rtl .nv-delete{
+    left: auto;
+    right: 0;
+}
+body.rtl .nv-button-small{
+    left: 20px;
+    right: auto;
+}
+body.rtl #nv-refresh{
+    right: auto;
+    left: 25px;
+}
+body.rtl .process-name .ftl_label{
+    float: right;
+    margin-right: 0px;
+    margin-left: 20px;
+}
+body.rtl #processes-list{
+    float: right;
+}
+body.rtl #processes-list li.active a{
+    padding-left: 40px;
+    padding-right: 15px;
+}
+body.rtl #processes-list.selector li.active:after{
+    right: auto;
+    left: 10px;
+}
+body.rtl #advancedView dl dt{
+    float: right;
+}
+body.rtl #advancedView dl dd{
+    margin-right: 150px;
+    margin-left: 40px;
+}
+body.rtl .row-button{
+    right: auto;
+    left: 0;
+}
+body.rtl #nav-list li a:before{
+    transform-origin: 100% 50%;
+}
+body.rtl #processTabView .main-body-row dl dt{
+    float: right;
+    margin-right: 0px;
+    margin-left: 15px;
+}
+body.rtl #processTabView .main-body-row dl dd{
+    margin-left: 40px;
+    margin-right: 115px;
+}
+body.rtl .participant-remove{
+    margin-right: 0px;
+    margin-left: 10px;
+}
+body.rtl .nv-link {
+    margin-right: 0px;
+    margin-left: 10px;
+}
+
+@media screen and (max-width:680px) {
+    body.rtl #header-links {
+        right: auto;
+        left: 0;
+    }
+    /* footer */
+    body:not(#login) #footer{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    /* siderbar */
+    body.rtl #nav {
+        border-left:0;
+    }
+    body.rtl #nav-title {
+        padding: 5px 45px 5px 50px;
+    }
+    body.rtl #nav-body .menu-trigger {
+        left: auto;
+        right: 10px;
+    }
+    /* popup */
+    body.rtl .ui-dialog-titlebar{
+        left: 0px;
+    }
+    /* main*/
+    body.rtl #main {
+        margin-right: 0;
+    }
+    /* button */
+    body.rtl #main-action-buttons.buttongroup li button {
+        text-align: right;
+    }
+    /* tabs */
+    body.rtl .ui-tabs .ui-tabs-nav li.ui-tabs-active:after {
+        right: auto;
+        left: 10px;
+    }
+    body.rtl .ui-tabs .ui-tabs-nav li.ui-tabs-active a{
+        padding-right: 15px;
+        padding-left: 40px;
+    }
+    /* others */
+    body.rtl .form-row .form-input,
+    body.rtl .row-content dl dd{
+        margin-right: 15px;
+    }
+    body.rtl .nv-border {
+        margin-left: 0;
+    }
+    /* design app */
+    .nv-link {
+        margin-left: 0;
+    }
+}

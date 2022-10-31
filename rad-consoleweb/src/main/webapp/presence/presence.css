@@ -1,0 +1,83 @@
+#presence {
+    position: fixed;
+    right: 5px;
+    top: 1px;
+    width: 30px;
+    z-index: 500;
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: unset;
+    box-sizing: unset;
+}
+body.rtl #presence{
+    right: auto;
+    left: 5px;
+}
+#formbuilder #presence, #datalistbuilder #presence, #userviewbuilder #presence, #pbuilder #presence {
+    width: auto;
+    max-width: 50%;
+}
+#presence img.gravatar {
+    width: 20px;
+}
+#presence li {
+    background: white;
+    border: solid 1px black;
+    box-shadow: #555 1px 1px 1px;
+    float: right;
+    margin: 2px;
+    padding: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+    -webkit-box-sizing: unset;
+    box-sizing: unset;
+}
+#presence li:hover {
+    transition: ease-in-out;
+    transform:scale(1.5);
+    transform-origin:top right;
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+body.rtl #presence li {
+    float: left;
+}
+body.rtl #presence li:hover {
+    transform-origin:top left;
+    margin-right: 15px;
+    margin-left: 2px;
+}
+#presence span.username {
+    position: relative;
+    top: -8px;
+    left: -5px;
+    font-size: 8px;
+    line-height: 10px;
+    background: black;
+    color: white;
+    display: block;
+    height: 10px;
+    width: 30px;
+    opacity: 0.7;
+}
+body.rtl #presence span.username {
+    left: auto;
+    right: -5px;
+}
+@media screen and (max-width:680px) {
+    #presence {
+        right: 5px;
+        top: 45px;
+    }
+    body.rtl #presence {
+        right: auto;
+        left: 5px;
+    }
+    #presence li {
+        width: 15px;
+        height: 15px;
+    }
+}

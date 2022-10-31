@@ -1,0 +1,18 @@
+import net.purwana.rads.apps.app.service.AppUtil;
+import net.purwana.rads.apps.form.model.Element;
+import net.purwana.rads.apps.form.model.FormData;
+import net.purwana.rads.apps.form.model.FormRow;
+import net.purwana.rads.apps.form.model.FormRowSet;
+import net.purwana.rads.commons.util.LogUtil;
+   
+public FormRowSet load(Element element, String username, FormData formData) {
+    FormRowSet rows = new FormRowSet();
+    FormRow row = new FormRow();
+    row.setProperty("html", "<script>alert(\"test\")</script><div>!@#$%^&*()_+-={}|[]\\:\";',./<>?`~</div>");
+
+    rows.add(row);
+    return rows;
+}
+   
+//call load method with injected variable
+return load(element, primaryKey, formData);

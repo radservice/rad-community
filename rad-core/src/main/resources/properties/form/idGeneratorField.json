@@ -1,0 +1,62 @@
+[{
+    title : '@@form.idgeneratorfield.editIdGeneratorField@@',
+    properties : [{
+        name : 'id',
+        label : '@@form.idgeneratorfield.id@@',
+        type : 'autocomplete',
+        required : 'True',
+        regex_validation : '^[a-zA-Z0-9_]+$',
+        validation_message : '@@form.idgeneratorfield.invalidId@@',
+        options_callback : 'FormBuilder.getAllFieldOptions'
+    },
+    {
+        name : 'label',
+        label : '@@form.idgeneratorfield.label@@',
+        type : 'textfield',
+        required : 'True',
+        value : '@@net.purwana.rads.apps.form.lib.IdGeneratorField.pluginLabel@@'
+    },
+    {
+        name : 'envVariable',
+        description : '@@form.idgeneratorfield.envVariableDesc@@',
+        label : '@@form.idgeneratorfield.envVariableName@@',
+        type : 'textfield',
+        required : 'True',
+        value : 'counter',
+        regex_validation : '^[\.#a-zA-Z0-9_]+$',
+        validation_message : '@@form.idgeneratorfield.invalidId@@'
+    },
+    {
+        name : 'format',
+        label : '@@form.idgeneratorfield.format@@',
+        type : 'textfield',
+        required : 'True',
+        value : 'ID-??????'
+    }]
+},
+{
+    title : '@@form.idgeneratorfield.advancedOptions@@',
+    properties : [{
+        label : '@@form.idgeneratorfield.ui@@',
+        type : 'header'
+    },
+    {
+        name : 'hidden',
+        label : '@@form.idgeneratorfield.hidden@@',
+        type : 'checkbox',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        label : '@@form.idgeneratorfield.workflow@@',
+        type : 'header'
+    },
+    {
+        name : 'workflowVariable',
+        label : '@@form.idgeneratorfield.workflowVariable@@',
+        type : 'autocomplete',
+        options_ajax : '[CONTEXT_PATH]/web/json/console/app[APP_PATH]/workflowVariable/options'
+    }]
+}]

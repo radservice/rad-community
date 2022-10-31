@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.purwana.rads</groupId>
+    <artifactId>rad-install</artifactId>
+    <packaging>pom</packaging>
+    <version>7.0-SNAPSHOT</version>
+    <name>rad-install</name>
+    <url>https://rads.purwana.net</url>
+    <properties>
+        <nsis.setup.nsi>target/setup.nsi</nsis.setup.nsi>
+        <nsis.output.file>../rad-install/builds/rads-setup-${project.version}-${buildNumber}.exe</nsis.output.file>
+        <nsis.makensis.bin>makensis</nsis.makensis.bin>
+    </properties>
+<scm>
+        <connection>scm:git:ssh://git@gitlab.com/ekcaputrajaya/rad-community.git</connection>
+        <developerConnection>scm:git:ssh://git@gitlab.com/ekcaputrajaya/rad-community.git</developerConnection>
+        <url>ssh://git@gitlab.com/ekcaputrajaya/rad-community.git</url>
+        <tag>HEAD</tag>
+    </scm>
+    <modules>
+        <module>../rad-app</module>
+    </modules>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>README.txt</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>1.9.4</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <doCheck>false</doCheck>
+                    <doUpdate>false</doUpdate>
+                    <revisionOnScmFailure>0</revisionOnScmFailure>
+                    <shortRevisionLength>7</shortRevisionLength>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>cd</executable>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>ant</id>
+                        <phase>install</phase>
+                        <configuration>
+                            <tasks>
+                                <property file="src/main/resources/install.properties" />
+                                
+                                <delete dir="target" />
+                                <mkdir dir="target" />
+                                <mkdir dir="builds" />
+                                
+                                <copy todir="target/data">
+                                    <fileset dir="src/main/resources/data" />
+                                </copy>
+                                <copy file="src/main/resources/README.txt" todir="target" />
+                                <copy file="src/main/resources/CHANGES.txt" todir="target" />
+                                <copy file="src/main/resources/LICENSE.txt" todir="target" />
+                                <copy file="src/main/resources/NOTICE.txt" todir="target" />
+                                <copy file="src/main/resources/setup.nsi" todir="target" />
+                                <copy file="src/main/resources/rads_logo.bmp" todir="target" />
+                                <copy file="src/main/resources/rads.ico" todir="target" />
+                                <copy file="src/main/resources/rads_start.ico" todir="target" />
+                                <copy file="src/main/resources/rads_stop.ico" todir="target" />
+                                <copy file="src/main/resources/mariadb-start.bat" todir="target" />
+                                <copy file="src/main/resources/mariadb-stop.bat" todir="target" />
+                                <copy file="src/main/resources/tomcat8-run.bat" todir="target" />
+                                <copy file="src/main/resources/tomcat8-stop.bat" todir="target" />
+                                <copy file="src/main/resources/rads-start.bat" todir="target" />
+                                <copy file="src/main/resources/rads-stop.bat" todir="target" />
+                                <copy file="src/main/resources/build.xml" todir="target" />
+                                <copy file="src/main/resources/setup.sh" todir="target" />
+                                <copy file="src/main/resources/tomcat8.sh" todir="target" />
+
+                                <mkdir dir="downloads" />
+                                <get src="https://archive.apache.org/dist/tomcat/tomcat-8/v${tomcat.version}/bin/apache-tomcat-${tomcat.version}.tar.gz" dest="downloads/apache-tomcat-${tomcat.version}.tar.gz" username="public" password="public" usetimestamp="true" />
+                                <get src="https://archive.apache.org/dist/ant/binaries/apache-ant-${apache-ant.version}-bin.tar.gz" dest="downloads/apache-ant-${apache-ant.version}-bin.tar.gz" username="public" password="public" usetimestamp="true" />
+                                <get src="https://api.codetabs.com/v1/proxy/?quest=https://archive.mariadb.org/mariadb-10.3.9/win32-packages/mariadb-${mariadb.version}-win32.zip" dest="downloads/mariadb-noinstall-${mariadb.version}-win32.zip" username="public" password="public" usetimestamp="true" />
+                                <get src="https://api.codetabs.com/v1/proxy/?quest=https://dev.joget.org/downloads/dependencies/jre${jre.version}.tar.gz" dest="downloads/jre${jre.version}.tar.gz" username="public" password="public" usetimestamp="true" />
+                                
+                                <untar compression="gzip" dest="target">
+                                    <fileset dir="downloads/">
+                                        <include name="apache-tomcat-${tomcat.version}.tar.gz" />
+                                        <include name="apache-ant-${apache-ant.version}-bin.tar.gz" />
+                                        <include name="jre${jre.version}.tar.gz" />
+                                    </fileset>
+                                </untar>
+
+                                <unzip dest="target">
+                                    <fileset dir="downloads/">
+                                        <include name="mariadb-noinstall-${mariadb.version}-win32.zip" />
+                                    </fileset>
+                                </unzip>
+
+                                <copy flatten="true" todir="target/apache-tomcat-${tomcat.version}/webapps">
+                                    <fileset dir="../rad-consoleweb/">
+                                        <include name="*/rad.war" />
+                                    </fileset>
+                                </copy>
+                                <!--
+                                <copy flatten="true" todir="target/apache-tomcat-${tomcat.version}/webapps">
+                                    <fileset dir="../rad-designerweb/">
+                                        <include name="*/raddesigner.war" />
+                                    </fileset>
+                                </copy>
+                                -->                                
+                                <copy tofile="target/apache-tomcat-${tomcat.version}/conf/server.xml" file="src/main/resources/server.xml" overwrite="true" />
+                                <copy tofile="target/apache-tomcat-${tomcat.version}/conf/context.xml" file="src/main/resources/context.xml" overwrite="true" />
+                                <copy todir="target/mariadb-${mariadb.version}-win32/" file="src/main/resources/my.ini" />
+                                <copy todir="target/mariadb-${mariadb.version}-win32/data/" overwrite="true">
+                                    <fileset dir="src/main/resources/mariadb-data" />
+                                </copy>
+
+                                <echo file="target/VERSION.txt">${project.version} - build ${buildNumber}</echo>
+
+                                <copy todir="target/rads">
+                                    <fileset dir="src/main/resources/rads-home" />
+                                </copy>
+                                <copy todir="target/_getting_started">
+                                    <fileset dir="src/main/resources/_getting_started" />
+                                </copy>
+
+                                <zip destfile="builds/rads-windows-${project.version}-${buildNumber}.zip">
+                                    <fileset dir="target">
+                                        <include name="apache-ant-${apache-ant.version}/**" />
+                                        <include name="apache-tomcat-${tomcat.version}/**" />
+                                        <include name="jre${jre.version}/**" />
+                                        <include name="mariadb-${mariadb.version}-win32/**" />
+                                        <include name="data/**" />
+                                        <include name="docs/**" />
+                                        <include name="rads/**" />
+                                        <include name="build.xml" />
+                                        <include name="rads-start.bat" />
+                                        <include name="rads-stop.bat" />
+                                        <include name="LICENSE.txt" />
+                                        <include name="NOTICE.txt" />
+                                        <include name="README.txt" />
+                                        <include name="CHANGES.txt" />
+                                        <include name="tomcat8-run.bat" />
+                                        <include name="tomcat8-stop.bat" />
+                                        <include name="mariadb-start.bat" />
+                                        <include name="mariadb-stop.bat" />
+                                        <include name="VERSION.txt" />
+                                    </fileset>
+                                </zip>
+
+                                <tar compression="gzip" destfile="builds/rads-linux-${project.version}-${buildNumber}.tar.gz">
+                                    <tarfileset dir="target" prefix="rads-linux-${project.version}">
+                                        <include name="apache-ant-${apache-ant.version}/**" />
+                                        <include name="apache-tomcat-${tomcat.version}/**" />
+                                        <exclude name="apache-ant-${apache-ant.version}/bin/ant" />
+                                        <exclude name="apache-tomcat-${tomcat.version}/bin/*.sh" />
+                                        <include name="data/**" />
+                                        <include name="docs/**" />
+                                        <include name="rads/**" />
+                                        <exclude name="rads/app_datasource.properties" />
+                                        <include name="build.xml" />
+                                        <include name="LICENSE.txt" />
+                                        <include name="NOTICE.txt" />
+                                        <include name="README.txt" />
+                                        <include name="CHANGES.txt" />
+                                        <include name="VERSION.txt" />
+                                    </tarfileset>
+                                    <tarfileset dir="target" filemode="755" prefix="rads-linux-${project.version}">
+                                        <include name="apache-ant-${apache-ant.version}/bin/ant" />
+                                        <include name="apache-tomcat-${tomcat.version}/bin/*.sh" />
+                                        <include name="*.sh" />
+                                    </tarfileset>
+                                </tar>
+
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>nsis-maven-plugin</artifactId>
+                <version>1.0-alpha-1</version>
+                <executions>
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>generate-headerfile</goal>  
+                            <goal>make</goal>           
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+	<!--
+
+    
+	-->
+</project>
+

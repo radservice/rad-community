@@ -1,0 +1,13 @@
+.ql-container .ql-editor {
+  width:100%;
+  position: absolute;
+  top:0;
+  right:0;
+}
+.ql-container.ql-bubble .ql-editor {
+    padding: 5px 0px;
+}
+.ql-container.ql-bubble .ql-editor.ql-blank::before{
+    left:0px;
+    right:0px;
+}

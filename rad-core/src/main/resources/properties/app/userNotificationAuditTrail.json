@@ -1,0 +1,344 @@
+[{
+    title : '@@app.usernotificationaudittrail.config@@',
+    properties : [{
+        name : 'cc',
+        label : '@@app.usernotificationaudittrail.cc@@',
+        type : 'textfield'
+    },
+    {
+        name : 'subject',
+        label : '@@app.usernotificationaudittrail.subject@@',
+        type : 'textfield',
+        value : 'New Task: #assignment.activityName#'
+    },
+    {
+        name : 'emailMessage',
+        label : '@@app.usernotificationaudittrail.message@@',
+        description : '@@app.usernotificationaudittrail.message.desc@@',
+        type : 'textarea',
+        cols : '60',
+        rows : '15',
+        value : 'A new task has been created by the process #assignment.processName#'
+    },
+    {
+        name : 'isHtml',
+        label : '@@app.usernotificationaudittrail.isHtml@@',
+        type : 'checkbox',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        label : '@@app.usernotificationaudittrail.notificationLink@@',
+        type : 'header'
+    },
+    {
+        name : 'url',
+        label : '@@app.usernotificationaudittrail.url@@',
+        type : 'textfield'
+    },
+    {
+        name : 'urlName',
+        label : '@@app.usernotificationaudittrail.urlName@@',
+        description : '@@app.usernotificationaudittrail.urlName.desc@@',
+        type : 'textfield'
+    },
+    {
+        name : 'parameterName',
+        label : '@@app.usernotificationaudittrail.parameterName@@',
+        description : '@@app.usernotificationaudittrail.parameterName.desc@@',
+        type : 'textfield',
+        value : 'activityId'
+    },
+    {
+        name : 'passoverMethod',
+        label : '@@app.usernotificationaudittrail.passoverMethod@@',
+        type : 'selectbox',
+        value : 'param',
+        options : [{
+            value : 'none',
+            label : '@@app.usernotificationaudittrail.passoverMethod.none@@'
+        },
+        {
+            value : 'append',
+            label : '@@app.usernotificationaudittrail.passoverMethod.append@@'
+        },
+        {
+            value : 'param',
+            label : '@@app.usernotificationaudittrail.passoverMethod.param@@'
+        }]
+    }]
+},
+{
+    title : '@@app.emailtool.smtpSetting@@',
+    properties : [{
+        name : 'base',
+        label : '@@app.usernotificationaudittrail.baseUrl@@',
+        type : 'textfield',
+        description : '@@app.usernotificationaudittrail.baseUrl.desc@@',
+        required : 'True'
+    },
+    {
+        name : 'from',
+        label : '@@app.usernotificationaudittrail.from@@',
+        description : '@@app.usernotificationaudittrail.from.desc@@',
+        type : 'textfield'
+    },
+    {
+        name : 'host',
+        label : '@@app.usernotificationaudittrail.host@@',
+        description : '@@app.usernotificationaudittrail.host.desc@@',
+        type : 'textfield'
+    },
+    {
+        name : 'port',
+        label : '@@app.usernotificationaudittrail.port@@',
+        description : '@@app.usernotificationaudittrail.port.desc@@',
+        type : 'textfield'
+    },
+    {
+        name : 'security',
+        label : '@@app.usernotificationaudittrail.security@@',
+        description : '@@app.usernotificationaudittrail.security.desc@@',
+        type : 'selectbox',
+        options : [{
+            value : '',
+            label : ''
+        },
+        {
+            value : 'TLS',
+            label : '@@app.usernotificationaudittrail.security.tls@@'
+        },
+        {
+            value : 'SSL',
+            label : '@@app.usernotificationaudittrail.security.ssl@@'
+        }],
+        supportHash : 'true'
+    },
+    {
+        name : 'username',
+        label : '@@app.usernotificationaudittrail.username@@',
+        type : 'textfield'
+    },
+    {
+        name : 'password',
+        label : '@@app.usernotificationaudittrail.password@@',
+        type : 'password'
+    }],
+    validators : [{  
+        type : 'AJAX',
+        url : '[CONTEXT_PATH]/web/json/app[APP_PATH]/plugin/net.purwana.rads.apps.app.lib.EmailTool/service?action=validate',
+        default_error_message : '@@app.emailtool.error.smtp@@'
+    }],
+    buttons : [{
+        name : 'testmail',    
+        label : '@@app.emailtool.sendTestMail@@',
+        ajax_url : '[CONTEXT_PATH]/web/json/app[APP_PATH]/plugin/net.purwana.rads.apps.app.lib.EmailTool/service?action=testmail',
+        fields : ['from', 'host', 'port', 'security', 'username', 'password'],
+        addition_fields : [
+            {
+                name : 'toSpecific',
+                label : '@@app.emailtool.toEmail@@',
+                type : 'textfield',
+                required : 'True'
+            }
+        ]
+    }]
+},
+{
+    title : '@@push.settings@@',
+    properties : [{
+        name: 'disablePush',
+        label: '@@push.disablePush@@',
+        type: 'checkbox',
+        value: 'false',
+        options: [{
+            value: 'true',
+            label: ''
+        }]
+    }]
+},
+{
+    title : '@@app.emailtool.attachments@@',
+    properties : [{
+        name:'formDefId',
+        label:'@@app.emailtool.form@@',
+        type:'selectbox',
+        options_ajax:'[CONTEXT_PATH]/web/json/console/app[APP_PATH]/forms/options',
+    },
+    {
+        name:'fields',
+        label:'@@app.emailtool.fields@@',
+        type:'grid',
+        columns:[{
+            key:'field',
+            label:'@@app.emailtool.fieldId@@',
+            options_ajax_on_change : 'formDefId',
+            options_ajax : '[CONTEXT_PATH]/web/json/console/app[APP_PATH]/form/columns/options'
+        },
+        {
+            key:'embed',
+            label:'@@app.emailtool.embed@@',
+            type:'truefalse'
+        }]
+    },
+    {
+        name:'files',
+        label:'@@app.emailtool.files@@',
+        type:'grid',
+        columns:[{
+            key:'path',
+            label:'@@app.emailtool.path@@'
+        },
+        {
+            key:'type',
+            label:'@@app.emailtool.pathType@@',
+            options: [{
+                value : 'system',
+                label : '@@app.emailtool.pathType.system@@'
+            },
+            {
+                value : 'url',
+                label : '@@app.emailtool.pathType.url@@'
+            }]
+        },
+        {
+            key:'fileName',
+            label:'@@app.emailtool.fileName@@'
+        },
+        {
+            key:'embed',
+            label:'@@app.emailtool.embed@@',
+            type:'truefalse'
+        }]
+    },
+    {
+        label : '@@app.emailtool.ics@@',
+        description : '@@app.emailtool.ics.desc@@',
+        type : 'header'
+    },
+    {
+        name : 'icsAttachement',
+        label : '@@app.emailtool.icsAttachement@@',
+        type : 'checkbox',
+        options : [{
+            value : 'true',
+            label : ''
+        }]
+    },
+    {
+        name : 'icsEventName',
+        label : '@@app.emailtool.icsEventName@@',
+        type : 'textfield',
+        control_field: 'icsAttachement',
+        control_value: 'true',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'icsDateStart',
+        label : '@@app.emailtool.icsDateStart@@',
+        type : 'textfield',
+        control_field: 'icsAttachement',
+        control_value: 'true',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'icsDateEnd',
+        label : '@@app.emailtool.icsDateEnd@@',
+        type : 'textfield',
+        control_field: 'icsAttachement',
+        control_value: 'true',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'icsDateFormat',
+        label : '@@app.emailtool.icsDateFormat@@',
+        type : 'textfield',
+        value : 'yyyy-MM-dd HH:mm',
+        control_field: 'icsAttachement',
+        control_value: 'true',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'icsTimezone',
+        label : '@@app.emailtool.icsTimezone@@',
+        type : 'textfield',
+        control_field: 'icsAttachement',
+        control_value: 'true',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'icsAllDay',
+        label : '@@app.emailtool.icsAllDay@@',
+        type : 'checkbox',
+        options : [{
+            value : 'true',
+            label : ''
+        }],
+        control_field: 'icsAttachement',
+        control_value: 'true',
+        control_use_regex: 'false',
+        supportHash : 'true'
+    },
+    {
+        name : 'icsEventDesc',
+        label : '@@app.emailtool.icsEventDesc@@',
+        type : 'textarea',
+        control_field: 'icsAttachement',
+        control_value: 'true',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'icsLocation',
+        label : '@@app.emailtool.icsLocation@@',
+        type : 'textfield',
+        control_field: 'icsAttachement',
+        control_value: 'true',
+        control_use_regex: 'false'
+    },
+    {
+        name : 'icsOrganizerEmail',
+        label : '@@app.emailtool.icsOrganizerEmail@@',
+        type : 'textfield',
+        control_field: 'icsAttachement',
+        control_value: 'true',
+        control_use_regex: 'false'
+    },
+    {
+        name:'icsAttendees',
+        label:'@@app.emailtool.icsAttendees@@',
+        type:'grid',
+        columns:[{
+            key:'name',
+            label:'@@app.emailtool.icsAttendees.name@@',
+            required : 'true'
+        },
+        {
+            key:'email',
+            label:'@@app.emailtool.icsAttendees.email@@',
+            required : 'true'
+        },
+        {
+            key:'required',
+            label:'@@app.emailtool.icsAttendees.required@@',
+            type: 'truefalse'
+        }],
+        control_field: 'icsAttachement',
+        control_value: 'true',
+        control_use_regex: 'false'
+    }]
+},    
+{
+    title : '@@app.usernotificationaudittrail.advanced@@',
+    properties : [{
+        name : 'exclusion',
+        label : '@@app.usernotificationaudittrail.activityExclusion@@',
+        description : '@@app.usernotificationaudittrail.activityExclusion.desc@@',
+        type : 'multiselect',
+        size : '10',
+        options_ajax : '[CONTEXT_PATH]/web/json/app[APP_PATH]/plugin/net.purwana.rads.apps.app.lib.UserNotificationAuditTrail/service?action=getActivities'
+    }]
+}]

@@ -1,0 +1,85 @@
+[{
+    title : '@@datalist.hyperlinkdatalistaction.configureLink@@',
+    properties : [{
+        label : '@@datalist.hyperlinkdatalistaction.hyperlink@@',
+        name : 'href',
+        type : 'textfield',
+        description : '@@datalist.hyperlinkdatalistaction.hyperlink.desc@@'
+    },
+    {
+        label : '@@datalist.hyperlinkdatalistaction.hyperlinkTarget@@',
+        name : 'target',
+        type : 'selectbox',
+        options : [{
+            value : '_self',
+            label : '@@datalist.hyperlinkdatalistaction.currentWindow@@'
+        },
+        {
+            value : '_blank',
+            label : '@@datalist.hyperlinkdatalistaction.newWindow@@'
+        },
+        {
+            value : '_top',
+            label : '@@datalist.hyperlinkdatalistaction.top@@'
+        },
+        {
+            value : '_parent',
+            label : '@@datalist.hyperlinkdatalistaction.parent@@'
+        },
+        {
+            value : 'iframe',
+            label : '@@datalist.hyperlinkdatalistaction.iframe@@'
+        },
+        {
+            value : 'popup',
+            label : '@@datalist.hyperlinkdatalistaction.popup@@'
+        }]
+    },
+    {
+        label : '@@datalist.hyperlinkdatalistaction.iframename@@',
+        name : 'iframename',
+        type : 'textfield',
+        control_field: 'target',
+        control_value: 'iframe',
+        control_use_regex: 'false',
+        required : 'true'
+    },
+    {
+        name : 'parameters',
+        label : '@@datalist.hyperlinkdatalistaction.hyperlinkParameters@@',
+        type : 'gridCombine',
+        columns : [{
+            key : 'hrefParam',
+            label : '@@datalist.hyperlinkdatalistaction.hyperlinkParamName@@'
+        },
+        {
+            key : 'hrefColumn',
+            label : '@@datalist.hyperlinkdatalistaction.columnName@@',
+            options_callback : 'DatalistBuilder.getColumnOptions'
+        }]
+    },
+    {
+        label : '@@datalist.hyperlinkdatalistaction.label@@',
+        name : 'label',
+        type : 'textfield',
+        description : '@@datalist.hyperlinkdatalistaction.label.desc@@',
+        value : 'Hyperlink',
+        required : 'true'
+    },
+    {
+        label : '@@datalist.hyperlinkdatalistaction.confirmationMessage@@',
+        name : 'confirmation',
+        type : 'textfield'
+    },
+    {
+        label : '@@datalist.hyperlinkdatalistaction.visible@@',
+        name : 'visible',
+        type : 'checkbox',
+        options : [
+            {'value' : 'true', 'label' : ''}
+        ],
+        control_field: 'datalist_type',
+        control_value: 'action',
+        control_use_regex: 'false'
+    }]
+}]
